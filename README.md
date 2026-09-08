@@ -1,29 +1,35 @@
-# CASINO SLOT VIETNAM V8 - ULTRA LAG FIX — LAG FIX
+# CASINO SLOT VIETNAM — V9 ULTRA SMOOTH
 
-Bản tối ưu WebView máy yếu, giữ game/modules cũ và bổ sung pet/đổi tên.
+Bản tối ưu ưu tiên thiết bị yếu: 75 game hiển thị trong Mini App, nhưng giữ các module game cũ trong repository để compatibility. Không nạp/rút tiền thật.
 
 ## Render
 Build: `npm install`
 Start: `node server/server.js`
 
-Environment:
+ENV:
 - `NODE_ENV=production`
-- `BOT_TOKEN=<token BotFather>`
+- `BOT_TOKEN=...`
 - `WEB_APP_URL=https://TEN-APP.onrender.com`
 - `PUBLIC_URL=https://TEN-APP.onrender.com`
-- `ADMIN_ID=<Telegram numeric ID>`
+- `ADMIN_ID=TELEGRAM_ID_ADMIN`
 
-## Điểm chính
-- Cược tối đa 75% số dư, tối đa 1.000.000 Xu.
-- Người mới được đặt tên lần đầu miễn phí; đổi tên sau đó phí 5.000 Xu.
-- 100 pet, mỗi pet có ID nội bộ, giá tăng dần; ID không hiện trong Mini App.
-- Pet chỉ ảnh hưởng XP và Xu nhận được, không ảnh hưởng xác suất thắng.
-- Pet mua 1 lần; pet không active có thể bán và nhận 40% giá mua.
-- Animation game nhẹ: Lucky Spin có bánh xe + mũi tên; Tài Xỉu có xúc xắc rơi; Slot có reel; bài/coin/grid/keno/plinko/crash có presentation riêng.
-- SFX tạo trực tiếp bằng Web Audio API, không cần mua/tải asset âm thanh.
-- Có thể bấm “Hiện kết quả” để bỏ qua animation.
-- Danh sách game chỉ render 24 mục/lần để giảm lag khi cuộn; có tìm kiếm và Hiện thêm.
-- Không dùng canvas, particle system, backdrop-filter hoặc animation loop JS cho gameplay.
+## Tính năng V9
+- 75 game curated, server settlement.
+- Tỷ lệ thắng dài hạn 42% theo từng game.
+- Trong 42% thắng: mốc x2 chiếm 7% tổng lượt, còn x1.5 chiếm 35%; x2 thấp hơn x1.5.
+- Cược tối đa 75% số dư, trần 1.000.000 Xu.
+- Đăng nhập theo tháng: thưởng Xu hằng ngày, mốc tháng nhận pet.
+- Ngân hàng: lãi kép 10%/ngày; chỉ rút sau ít nhất 7 ngày.
+- 100 pet, giá tăng dần; pet tăng XP và Xu, không tăng tỷ lệ thắng.
+- Mỗi pet shop mua 1 lần; vật phẩm daily mua 1 lần/ngày.
+- Bán pet nhận 40% giá mua.
+- XP cho cả thắng/thua; ngưỡng XP tăng theo level; level-up có Xu và pet phần thưởng.
+- BXH giàu, streak, XP, thắng tuần.
+- `/petsid` chỉ ADMIN để xem 100 ID pet.
+- `/ownerhelp` chỉ ADMIN.
+- `/start` trả nút mở Mini App.
+- SFX nhẹ bằng Web Audio; không cần file âm thanh trả phí.
+- Không canvas/particle/requestAnimationFrame/scroll animation nặng.
 
-## Kiểm tra
-Source đã được quét 5 vòng: syntax, cấu trúc, DOM/API, logic game/pet và ZIP integrity.
+## Lưu ý
+Không có cách bảo đảm 0 lag tuyệt đối trên mọi thiết bị vì Telegram WebView/phần cứng khác nhau. Source này loại bỏ các hoạt động render liên tục nặng nhất và giảm DOM ban đầu.

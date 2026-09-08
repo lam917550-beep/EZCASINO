@@ -1,33 +1,12 @@
 {
-  "passes": [
-    {
-      "name": "syntax",
-      "passed": true,
-      "errors": []
-    },
-    {
-      "name": "structure_counts",
-      "passed": true,
-      "errors": []
-    },
-    {
-      "name": "dom_api",
-      "passed": true,
-      "errors": []
-    },
-    {
-      "name": "performance",
-      "passed": true,
-      "errors": []
-    },
-    {
-      "name": "logic",
-      "passed": true,
-      "errors": []
-    }
-  ],
-  "game_count": 180,
-  "pet_count": 100,
-  "feature_count": 12000,
-  "achievement_count": 650
+  "pass1_syntax": "PASS",
+  "pass2_data": "PASS",
+  "pass3_contracts": "PASS",
+  "pass4_probability": "PASS — 42% wins; 35% x1.5; 7% x2",
+  "pass5_runtime": "PASS — bootstrap/play/bank/rankings route smoke",
+  "animation_runtime": "DISABLED",
+  "games_visible": 75,
+  "pets": 100,
+  "feature_hooks": 12002,
+  "zip_integrity": "PASS"
 }

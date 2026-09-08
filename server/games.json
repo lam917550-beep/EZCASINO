@@ -1,1 +1,452 @@
-[{"id":"tai-xiu","name":"Tài Xỉu","category":"Xúc xắc","mechanic":"dice"},{"id":"lucky-spin","name":"Lucky Spin","category":"Vòng quay","mechanic":"wheel"},{"id":"bau-cua","name":"Bầu Cua Tôm Cá","category":"Đồ hình","mechanic":"baucua"},{"id":"xoc-dia","name":"Xóc Đĩa","category":"Đồng xu","mechanic":"coin"},{"id":"slot-machine","name":"Slot Machine","category":"3 cột","mechanic":"reels"},{"id":"blackjack","name":"Xì Dách","category":"Bài","mechanic":"cards"},{"id":"poker","name":"Poker đơn giản","category":"Bài","mechanic":"poker"},{"id":"baccarat","name":"Baccarat","category":"Bài","mechanic":"baccarat"},{"id":"roulette","name":"Cò quay","category":"Bánh xe","mechanic":"roulette"},{"id":"mega-wheel","name":"Mega Wheel","category":"Vòng quay","mechanic":"wheel"},{"id":"plinko","name":"Plinko","category":"Rơi bóng","mechanic":"plinko"},{"id":"mines","name":"Dò Mìn","category":"Ô bí mật","mechanic":"mines"},{"id":"crash","name":"Crash Game","category":"Hệ số","mechanic":"crash"},{"id":"dice","name":"Xúc Xắc","category":"Xúc xắc","mechanic":"dice"},{"id":"coin-flip","name":"Tung Đồng Xu","category":"Đồng xu","mechanic":"coin"},{"id":"hi-lo","name":"Cao Thấp","category":"Bài","mechanic":"cards"},{"id":"keno","name":"Keno","category":"Bóng số","mechanic":"keno"},{"id":"andar-bahar","name":"Andar Bahar","category":"Bài","mechanic":"cards"},{"id":"sic-bo","name":"Sic Bo","category":"Xúc xắc","mechanic":"dice"},{"id":"dragon-tiger","name":"Rồng Hổ","category":"Bài","mechanic":"cards"},{"id":"teen-patti","name":"Teen Patti","category":"Bài","mechanic":"poker"},{"id":"red-black","name":"Đỏ Đen","category":"Bài","mechanic":"cards"},{"id":"wheel-7","name":"Vòng 7","category":"Vòng quay","mechanic":"wheel"},{"id":"number-draw","name":"Rút Số","category":"Số","mechanic":"keno"},{"id":"color-pick","name":"Chọn Màu","category":"Màu","mechanic":"pick"},{"id":"gems","name":"Kho Báu Ngọc","category":"Ô","mechanic":"grid"},{"id":"treasure-chest","name":"Rương Kho Báu","category":"Rương","mechanic":"grid"},{"id":"tower","name":"Tháp May Mắn","category":"Tháp","mechanic":"grid"},{"id":"ladder","name":"Bậc Thang","category":"Hệ số","mechanic":"crash"},{"id":"rocket","name":"Tên Lửa","category":"Hệ số","mechanic":"crash"},{"id":"moon-run","name":"Chạy Trăng","category":"Hệ số","mechanic":"crash"},{"id":"sun-wheel","name":"Vòng Mặt Trời","category":"Vòng quay","mechanic":"wheel"},{"id":"fortune-tree","name":"Cây Phú Quý","category":"Cây","mechanic":"grid"},{"id":"golden-eggs","name":"Trứng Vàng","category":"Trứng","mechanic":"pick"},{"id":"mystery-box","name":"Hộp Bí Ẩn","category":"Hộp","mechanic":"pick"},{"id":"dice-duel","name":"Đấu Xúc Xắc","category":"Xúc xắc","mechanic":"dice"},{"id":"dice-high","name":"Xúc Xắc Cao","category":"Xúc xắc","mechanic":"dice"},{"id":"dice-low","name":"Xúc Xắc Thấp","category":"Xúc xắc","mechanic":"dice"},{"id":"double-or-nothing","name":"Gấp Đôi Hay Mất","category":"Lật","mechanic":"coin"},{"id":"safe-crack","name":"Phá Két","category":"Số","mechanic":"grid"},{"id":"vault","name":"Hầm Vàng","category":"Ô","mechanic":"grid"},{"id":"coin-rain","name":"Mưa Xu","category":"Vòng quay","mechanic":"wheel"},{"id":"gold-wheel","name":"Bánh Xe Vàng","category":"Vòng quay","mechanic":"wheel"},{"id":"diamond-wheel","name":"Bánh Xe Kim Cương","category":"Vòng quay","mechanic":"wheel"},{"id":"rainbow-wheel","name":"Bánh Xe Cầu Vồng","category":"Vòng quay","mechanic":"wheel"},{"id":"fire-wheel","name":"Bánh Xe Lửa","category":"Vòng quay","mechanic":"wheel"},{"id":"ice-wheel","name":"Bánh Xe Băng","category":"Vòng quay","mechanic":"wheel"},{"id":"star-wheel","name":"Bánh Xe Sao","category":"Vòng quay","mechanic":"wheel"},{"id":"ocean-wheel","name":"Bánh Xe Đại Dương","category":"Vòng quay","mechanic":"wheel"},{"id":"forest-wheel","name":"Bánh Xe Rừng","category":"Vòng quay","mechanic":"wheel"},{"id":"desert-wheel","name":"Bánh Xe Sa Mạc","category":"Vòng quay","mechanic":"wheel"},{"id":"volcano-wheel","name":"Bánh Xe Núi Lửa","category":"Vòng quay","mechanic":"wheel"},{"id":"ninja-reels","name":"Ninja Reels","category":"3 cột","mechanic":"reels"},{"id":"dragon-reels","name":"Dragon Reels","category":"3 cột","mechanic":"reels"},{"id":"phoenix-reels","name":"Phoenix Reels","category":"3 cột","mechanic":"reels"},{"id":"tiger-reels","name":"Tiger Reels","category":"3 cột","mechanic":"reels"},{"id":"lucky-777","name":"Lucky 777","category":"3 cột","mechanic":"reels"},{"id":"fruit-reels","name":"Fruit Reels","category":"3 cột","mechanic":"reels"},{"id":"gem-reels","name":"Gem Reels","category":"3 cột","mechanic":"reels"},{"id":"ocean-reels","name":"Ocean Reels","category":"3 cột","mechanic":"reels"},{"id":"space-reels","name":"Space Reels","category":"3 cột","mechanic":"reels"},{"id":"neon-reels","name":"Neon Reels","category":"3 cột","mechanic":"reels"},{"id":"cyber-reels","name":"Cyber Reels","category":"3 cột","mechanic":"reels"},{"id":"viking-reels","name":"Viking Reels","category":"3 cột","mechanic":"reels"},{"id":"samurai-reels","name":"Samurai Reels","category":"3 cột","mechanic":"reels"},{"id":"royal-reels","name":"Royal Reels","category":"3 cột","mechanic":"reels"},{"id":"ancient-reels","name":"Ancient Reels","category":"3 cột","mechanic":"reels"},{"id":"myth-reels","name":"Myth Reels","category":"3 cột","mechanic":"reels"},{"id":"star-reels","name":"Star Reels","category":"3 cột","mechanic":"reels"},{"id":"moon-reels","name":"Moon Reels","category":"3 cột","mechanic":"reels"},{"id":"sun-reels","name":"Sun Reels","category":"3 cột","mechanic":"reels"},{"id":"rainbow-reels","name":"Rainbow Reels","category":"3 cột","mechanic":"reels"},{"id":"bingo","name":"Bingo","category":"Lô tô","mechanic":"keno"},{"id":"mini-bingo","name":"Mini Bingo","category":"Lô tô","mechanic":"keno"},{"id":"number-21","name":"Số 21","category":"Số","mechanic":"pick"},{"id":"target-21","name":"Mục Tiêu 21","category":"Số","mechanic":"pick"},{"id":"sum-guess","name":"Đoán Tổng","category":"Số","mechanic":"dice"},{"id":"parity","name":"Chẵn Lẻ","category":"Số","mechanic":"pick"},{"id":"prime-pick","name":"Chọn Số Nguyên Tố","category":"Số","mechanic":"pick"},{"id":"range-pick","name":"Chọn Khoảng","category":"Số","mechanic":"pick"},{"id":"higher-card","name":"Lá Cao Hơn","category":"Bài","mechanic":"cards"},{"id":"lower-card","name":"Lá Thấp Hơn","category":"Bài","mechanic":"cards"},{"id":"pair-or-not","name":"Có Đôi Không","category":"Bài","mechanic":"cards"},{"id":"suit-pick","name":"Chọn Chất","category":"Bài","mechanic":"cards"},{"id":"red-suit-black-suit","name":"Đỏ Chất / Đen Chất","category":"Bài","mechanic":"cards"},{"id":"three-card","name":"Ba Lá","category":"Bài","mechanic":"cards"},{"id":"five-card-draw","name":"Năm Lá","category":"Bài","mechanic":"poker"},{"id":"war","name":"Chiến Tranh Bài","category":"Bài","mechanic":"cards"},{"id":"memory-card","name":"Lật Cặp Bài","category":"Bài","mechanic":"grid"},{"id":"joker-draw","name":"Rút Joker","category":"Bài","mechanic":"pick"},{"id":"magic-eight","name":"Magic 8","category":"Quả cầu","mechanic":"pick"},{"id":"fortune-ball","name":"Quả Cầu Tiên Tri","category":"Quả cầu","mechanic":"pick"},{"id":"oracle","name":"Lời Sấm","category":"Quả cầu","mechanic":"pick"},{"id":"yes-no","name":"Có / Không","category":"Quả cầu","mechanic":"coin"},{"id":"heads-tails","name":"Ngửa / Sấp","category":"Đồng xu","mechanic":"coin"},{"id":"three-coins","name":"Ba Đồng Xu","category":"Đồng xu","mechanic":"coin"},{"id":"five-dice","name":"Năm Xúc Xắc","category":"Xúc xắc","mechanic":"dice"},{"id":"ten-dice","name":"Mười Xúc Xắc","category":"Xúc xắc","mechanic":"dice"},{"id":"target-dice","name":"Bắn Trúng Mục Tiêu","category":"Xúc xắc","mechanic":"dice"},{"id":"lucky-number","name":"Con Số May Mắn","category":"Số","mechanic":"pick"},{"id":"lucky-color","name":"Màu May Mắn","category":"Màu","mechanic":"pick"},{"id":"lucky-symbol","name":"Biểu Tượng May Mắn","category":"Biểu tượng","mechanic":"pick"},{"id":"pick-a-door","name":"Chọn Cửa","category":"Cửa","mechanic":"pick"},{"id":"three-cups","name":"Ba Cốc","category":"Cốc","mechanic":"grid"},{"id":"shell-game","name":"Ba Vỏ Sò","category":"Vỏ sò","mechanic":"grid"},{"id":"find-star","name":"Tìm Ngôi Sao","category":"Ô","mechanic":"grid"},{"id":"find-gem","name":"Tìm Ngọc","category":"Ô","mechanic":"grid"},{"id":"find-gold","name":"Tìm Vàng","category":"Ô","mechanic":"grid"},{"id":"dragon-egg","name":"Trứng Rồng","category":"Trứng","mechanic":"pick"},{"id":"phoenix-egg","name":"Trứng Phượng","category":"Trứng","mechanic":"pick"},{"id":"lotus-pond","name":"Ao Sen","category":"Ô","mechanic":"grid"},{"id":"bamboo-fortune","name":"Tre May Mắn","category":"Tre","mechanic":"pick"},{"id":"cat-fortune","name":"Mèo Phú Quý","category":"Mèo","mechanic":"pick"},{"id":"lucky-koi","name":"Cá Koi May Mắn","category":"Cá","mechanic":"pick"},{"id":"lantern-fest","name":"Đèn Lồng May Mắn","category":"Đèn","mechanic":"wheel"},{"id":"tet-fortune","name":"Tết May Mắn","category":"Tết","mechanic":"wheel"},{"id":"mid-autumn","name":"Trung Thu","category":"Trăng","mechanic":"wheel"},{"id":"golden-pig","name":"Heo Vàng","category":"Heo","mechanic":"pick"},{"id":"red-envelope","name":"Lì Xì","category":"Phong bao","mechanic":"pick"},{"id":"fortune-stamp","name":"Con Dấu May Mắn","category":"Con dấu","mechanic":"pick"},{"id":"thuy-van","name":"Thủy Vân","category":"Bình minh","mechanic":"wheel"},{"id":"ngoc-rong","name":"Ngọc Rồng Đại Chiến","category":"Rồng","mechanic":"reels"},{"id":"long-lan-phung","name":"Long Lân Phụng","category":"Tứ linh","mechanic":"reels"},{"id":"kim-tu-thap","name":"Kim Tự Tháp Vàng","category":"Kim tự tháp","mechanic":"grid"},{"id":"than-tai","name":"Thần Tài Gõ Cửa","category":"Thần tài","mechanic":"pick"},{"id":"cung-hoang-dao","name":"12 Cung Hoàng Đạo","category":"Cung hoàng đạo","mechanic":"pick"},{"id":"sieu-xuc-xac","name":"Siêu Xúc Xắc","category":"Xúc xắc","mechanic":"dice"},{"id":"hai-con-rong","name":"Hai Con Rồng","category":"Rồng","mechanic":"reels"},{"id":"kho-bau-hai-tac","name":"Kho Báu Hải Tặc","category":"Hải tặc","mechanic":"grid"},{"id":"phu-thuy-khong-gian","name":"Phù Thủy Không Gian","category":"Không gian","mechanic":"reels"},{"id":"vu-tru-777","name":"Vũ Trụ 777","category":"Vũ trụ","mechanic":"reels"},{"id":"sao-bang","name":"Sao Băng","category":"Thiên thạch","mechanic":"crash"},{"id":"thien-ha","name":"Thiên Hà","category":"Ngân hà","mechanic":"wheel"},{"id":"san-kho-bau","name":"Săn Kho Báu","category":"Kho báu","mechanic":"grid"},{"id":"hiep-khach","name":"Hiệp Khách May Mắn","category":"Hiệp khách","mechanic":"cards"},{"id":"kiem-hiep","name":"Kiếm Hiệp","category":"Kiếm","mechanic":"pick"},{"id":"thanh-long","name":"Thanh Long","category":"Rồng xanh","mechanic":"reels"},{"id":"bach-ho","name":"Bạch Hổ","category":"Hổ trắng","mechanic":"reels"},{"id":"chu-tuoc","name":"Chu Tước","category":"Phượng đỏ","mechanic":"reels"},{"id":"huyen-vu","name":"Huyền Vũ","category":"Rùa đen","mechanic":"reels"},{"id":"kingdom-wheel","name":"Bánh Xe Vương Quốc","category":"Vòng quay","mechanic":"wheel"},{"id":"royal-dice","name":"Xúc Xắc Hoàng Gia","category":"Xúc xắc","mechanic":"dice"},{"id":"jade-fortune","name":"Ngọc Bích Phú Quý","category":"Ô ngọc","mechanic":"grid"},{"id":"golden-koi","name":"Koi Vàng Đại Cát","category":"Cá Koi","mechanic":"pick"},{"id":"phoenix-wheel","name":"Phượng Hoàng Luân Hồi","category":"Vòng quay","mechanic":"wheel"},{"id":"dragon-wheel","name":"Long Thần Luân","category":"Vòng quay","mechanic":"wheel"},{"id":"neon-777","name":"Neon 777","category":"3 cột","mechanic":"reels"},{"id":"turbo-reels","name":"Turbo Reels","category":"3 cột","mechanic":"reels"},{"id":"mega-gems","name":"Mega Gems","category":"Ô ngọc","mechanic":"grid"},{"id":"crystal-mines","name":"Mỏ Pha Lê","category":"Ô bí mật","mechanic":"mines"},{"id":"sky-crash","name":"Bầu Trời Bùng Nổ","category":"Hệ số","mechanic":"crash"},{"id":"star-crash","name":"Sao Băng Crash","category":"Hệ số","mechanic":"crash"},{"id":"lucky-orbit","name":"Quỹ Đạo May Mắn","category":"Vòng quay","mechanic":"wheel"},{"id":"cosmic-wheel","name":"Vòng Quay Vũ Trụ","category":"Vòng quay","mechanic":"wheel"},{"id":"fortune-tiles","name":"Ô Gạch Tài Lộc","category":"Ô","mechanic":"grid"},{"id":"jade-cups","name":"Cốc Ngọc Bí Ẩn","category":"Cốc","mechanic":"grid"},{"id":"seven-coins","name":"Bảy Đồng Xu","category":"Đồng xu","mechanic":"coin"},{"id":"gold-coins","name":"Đồng Xu Hoàng Kim","category":"Đồng xu","mechanic":"coin"},{"id":"three-stars","name":"Ba Ngôi Sao","category":"Ngôi sao","mechanic":"pick"},{"id":"five-stars","name":"Năm Ngôi Sao","category":"Ngôi sao","mechanic":"pick"},{"id":"lucky-lock","name":"Khóa May Mắn","category":"Két","mechanic":"grid"},{"id":"golden-lock","name":"Khóa Vàng","category":"Két","mechanic":"grid"},{"id":"fortune-card","name":"Lá Bài Tài Lộc","category":"Bài","mechanic":"cards"},{"id":"royal-card","name":"Lá Bài Hoàng Gia","category":"Bài","mechanic":"cards"},{"id":"quick-baccarat","name":"Baccarat Nhanh","category":"Bài","mechanic":"baccarat"},{"id":"mini-blackjack","name":"Xì Dách Mini","category":"Bài","mechanic":"cards"},{"id":"speed-poker","name":"Poker Tốc Độ","category":"Bài","mechanic":"poker"},{"id":"dragon-bonus","name":"Thưởng Rồng","category":"Rồng","mechanic":"reels"},{"id":"lion-reels","name":"Sư Tử Hoàng Kim","category":"3 cột","mechanic":"reels"},{"id":"tiger-wheel","name":"Hổ Vàng Luân Xa","category":"Vòng quay","mechanic":"wheel"},{"id":"lunar-gems","name":"Ngọc Trăng","category":"Ô ngọc","mechanic":"grid"},{"id":"solar-gems","name":"Ngọc Mặt Trời","category":"Ô ngọc","mechanic":"grid"},{"id":"emerald-drop","name":"Mưa Lục Bảo","category":"Rơi ngọc","mechanic":"plinko"},{"id":"ruby-drop","name":"Mưa Hồng Ngọc","category":"Rơi ngọc","mechanic":"plinko"},{"id":"sapphire-drop","name":"Mưa Lam Ngọc","category":"Rơi ngọc","mechanic":"plinko"},{"id":"diamond-drop","name":"Mưa Kim Cương","category":"Rơi ngọc","mechanic":"plinko"},{"id":"fortune-balls","name":"Bóng Tài Lộc","category":"Bóng số","mechanic":"keno"},{"id":"golden-bingo","name":"Bingo Hoàng Kim","category":"Lô tô","mechanic":"keno"},{"id":"vietnam-fortune","name":"Đại Phú Việt Nam","category":"Phú quý","mechanic":"wheel"},{"id":"lotus-reels","name":"Sen Vàng Reels","category":"3 cột","mechanic":"reels"}]
+[
+  {
+    "id": "tai-xiu",
+    "name": "Tài Xỉu",
+    "category": "Xúc xắc",
+    "mechanic": "dice"
+  },
+  {
+    "id": "lucky-spin",
+    "name": "Lucky Spin",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "bau-cua",
+    "name": "Bầu Cua Tôm Cá",
+    "category": "Đồ hình",
+    "mechanic": "baucua"
+  },
+  {
+    "id": "xoc-dia",
+    "name": "Xóc Đĩa",
+    "category": "Đồng xu",
+    "mechanic": "coin"
+  },
+  {
+    "id": "slot-machine",
+    "name": "Slot Machine",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "blackjack",
+    "name": "Xì Dách",
+    "category": "Bài",
+    "mechanic": "cards"
+  },
+  {
+    "id": "poker",
+    "name": "Poker đơn giản",
+    "category": "Bài",
+    "mechanic": "poker"
+  },
+  {
+    "id": "baccarat",
+    "name": "Baccarat",
+    "category": "Bài",
+    "mechanic": "baccarat"
+  },
+  {
+    "id": "roulette",
+    "name": "Cò quay",
+    "category": "Bánh xe",
+    "mechanic": "roulette"
+  },
+  {
+    "id": "mega-wheel",
+    "name": "Mega Wheel",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "plinko",
+    "name": "Plinko",
+    "category": "Rơi bóng",
+    "mechanic": "plinko"
+  },
+  {
+    "id": "mines",
+    "name": "Dò Mìn",
+    "category": "Ô bí mật",
+    "mechanic": "mines"
+  },
+  {
+    "id": "crash",
+    "name": "Crash Game",
+    "category": "Hệ số",
+    "mechanic": "crash"
+  },
+  {
+    "id": "dice",
+    "name": "Xúc Xắc",
+    "category": "Xúc xắc",
+    "mechanic": "dice"
+  },
+  {
+    "id": "coin-flip",
+    "name": "Tung Đồng Xu",
+    "category": "Đồng xu",
+    "mechanic": "coin"
+  },
+  {
+    "id": "hi-lo",
+    "name": "Cao Thấp",
+    "category": "Bài",
+    "mechanic": "cards"
+  },
+  {
+    "id": "keno",
+    "name": "Keno",
+    "category": "Bóng số",
+    "mechanic": "keno"
+  },
+  {
+    "id": "andar-bahar",
+    "name": "Andar Bahar",
+    "category": "Bài",
+    "mechanic": "cards"
+  },
+  {
+    "id": "sic-bo",
+    "name": "Sic Bo",
+    "category": "Xúc xắc",
+    "mechanic": "dice"
+  },
+  {
+    "id": "dragon-tiger",
+    "name": "Rồng Hổ",
+    "category": "Bài",
+    "mechanic": "cards"
+  },
+  {
+    "id": "teen-patti",
+    "name": "Teen Patti",
+    "category": "Bài",
+    "mechanic": "poker"
+  },
+  {
+    "id": "red-black",
+    "name": "Đỏ Đen",
+    "category": "Bài",
+    "mechanic": "cards"
+  },
+  {
+    "id": "wheel-7",
+    "name": "Vòng 7",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "number-draw",
+    "name": "Rút Số",
+    "category": "Số",
+    "mechanic": "keno"
+  },
+  {
+    "id": "color-pick",
+    "name": "Chọn Màu",
+    "category": "Màu",
+    "mechanic": "pick"
+  },
+  {
+    "id": "gems",
+    "name": "Kho Báu Ngọc",
+    "category": "Ô",
+    "mechanic": "grid"
+  },
+  {
+    "id": "treasure-chest",
+    "name": "Rương Kho Báu",
+    "category": "Rương",
+    "mechanic": "grid"
+  },
+  {
+    "id": "tower",
+    "name": "Tháp May Mắn",
+    "category": "Tháp",
+    "mechanic": "grid"
+  },
+  {
+    "id": "ladder",
+    "name": "Bậc Thang",
+    "category": "Hệ số",
+    "mechanic": "crash"
+  },
+  {
+    "id": "rocket",
+    "name": "Tên Lửa",
+    "category": "Hệ số",
+    "mechanic": "crash"
+  },
+  {
+    "id": "moon-run",
+    "name": "Chạy Trăng",
+    "category": "Hệ số",
+    "mechanic": "crash"
+  },
+  {
+    "id": "sun-wheel",
+    "name": "Vòng Mặt Trời",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "fortune-tree",
+    "name": "Cây Phú Quý",
+    "category": "Cây",
+    "mechanic": "grid"
+  },
+  {
+    "id": "golden-eggs",
+    "name": "Trứng Vàng",
+    "category": "Trứng",
+    "mechanic": "pick"
+  },
+  {
+    "id": "mystery-box",
+    "name": "Hộp Bí Ẩn",
+    "category": "Hộp",
+    "mechanic": "pick"
+  },
+  {
+    "id": "dice-duel",
+    "name": "Đấu Xúc Xắc",
+    "category": "Xúc xắc",
+    "mechanic": "dice"
+  },
+  {
+    "id": "dice-high",
+    "name": "Xúc Xắc Cao",
+    "category": "Xúc xắc",
+    "mechanic": "dice"
+  },
+  {
+    "id": "dice-low",
+    "name": "Xúc Xắc Thấp",
+    "category": "Xúc xắc",
+    "mechanic": "dice"
+  },
+  {
+    "id": "double-or-nothing",
+    "name": "Gấp Đôi Hay Mất",
+    "category": "Lật",
+    "mechanic": "coin"
+  },
+  {
+    "id": "safe-crack",
+    "name": "Phá Két",
+    "category": "Số",
+    "mechanic": "grid"
+  },
+  {
+    "id": "vault",
+    "name": "Hầm Vàng",
+    "category": "Ô",
+    "mechanic": "grid"
+  },
+  {
+    "id": "coin-rain",
+    "name": "Mưa Xu",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "gold-wheel",
+    "name": "Bánh Xe Vàng",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "diamond-wheel",
+    "name": "Bánh Xe Kim Cương",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "rainbow-wheel",
+    "name": "Bánh Xe Cầu Vồng",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "fire-wheel",
+    "name": "Bánh Xe Lửa",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "ice-wheel",
+    "name": "Bánh Xe Băng",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "star-wheel",
+    "name": "Bánh Xe Sao",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "ocean-wheel",
+    "name": "Bánh Xe Đại Dương",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "forest-wheel",
+    "name": "Bánh Xe Rừng",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "desert-wheel",
+    "name": "Bánh Xe Sa Mạc",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "volcano-wheel",
+    "name": "Bánh Xe Núi Lửa",
+    "category": "Vòng quay",
+    "mechanic": "wheel"
+  },
+  {
+    "id": "ninja-reels",
+    "name": "Ninja Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "dragon-reels",
+    "name": "Dragon Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "phoenix-reels",
+    "name": "Phoenix Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "tiger-reels",
+    "name": "Tiger Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "lucky-777",
+    "name": "Lucky 777",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "fruit-reels",
+    "name": "Fruit Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "gem-reels",
+    "name": "Gem Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "ocean-reels",
+    "name": "Ocean Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "space-reels",
+    "name": "Space Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "neon-reels",
+    "name": "Neon Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "cyber-reels",
+    "name": "Cyber Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "viking-reels",
+    "name": "Viking Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "samurai-reels",
+    "name": "Samurai Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "royal-reels",
+    "name": "Royal Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "ancient-reels",
+    "name": "Ancient Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "myth-reels",
+    "name": "Myth Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "star-reels",
+    "name": "Star Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "moon-reels",
+    "name": "Moon Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "sun-reels",
+    "name": "Sun Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "rainbow-reels",
+    "name": "Rainbow Reels",
+    "category": "3 cột",
+    "mechanic": "reels"
+  },
+  {
+    "id": "bingo",
+    "name": "Bingo",
+    "category": "Lô tô",
+    "mechanic": "keno"
+  },
+  {
+    "id": "mini-bingo",
+    "name": "Mini Bingo",
+    "category": "Lô tô",
+    "mechanic": "keno"
+  },
+  {
+    "id": "number-21",
+    "name": "Số 21",
+    "category": "Số",
+    "mechanic": "pick"
+  }
+]

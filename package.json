@@ -1,12 +1,1 @@
-{
-  "name": "casino-slot-vietnam",
-  "version": "8.1.0",
-  "private": true,
-  "scripts": {
-    "start": "node server/server.js",
-    "check": "node --check server/server.js"
-  },
-  "dependencies": {
-    "express": "^4.21.2"
-  }
-}
+{"name":"casino-slot-vietnam","version":"9.0.0","private":true,"scripts":{"start":"node server/server.js","check":"node --check server/server.js"},"dependencies":{"express":"^4.21.2"}}
