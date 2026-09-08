@@ -1,4 +1,3 @@
 node_modules/
 .env
-*.log
-server/database/db.json.tmp
+server/database/*.tmp
