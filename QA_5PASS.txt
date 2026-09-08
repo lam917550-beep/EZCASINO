@@ -1,4 +1,0 @@
-PASS 1/5 OK — Syntax + JSON
-PASS 2/5 OK — Structure + counts + assets
-PASS 3/5 OK — DOM + API contract
-PASS 4/5 OK — 42% scheduler + 3s anti-spam

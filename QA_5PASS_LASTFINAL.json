@@ -1,0 +1,40 @@
+{
+  "passes": [
+    {
+      "name": "Syntax all JS",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Structure",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Catalog integrity",
+      "ok": true,
+      "detail": "games=75, pets=100, features=10000"
+    },
+    {
+      "name": "API/UI contract",
+      "ok": true,
+      "detail": {
+        "missing_api": []
+      }
+    },
+    {
+      "name": "Embedded QA",
+      "ok": true,
+      "detail": "[\n  {\n    \"name\": \"75 active games\",\n    \"ok\": true,\n    \"detail\": \"75\"\n  },\n  {\n    \"name\": \"unique game ids\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"100 pets\",\n    \"ok\": true,\n    \"detail\": \"100\"\n  },\n  {\n    \"name\": \"unique pet ids\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"10000 feature catalog\",\n    \"ok\": true,\n    \"detail\": \"10000\"\n  },\n  {\n    \"name\": \"state games initialized\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"game endpoint\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"cooldown\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"75% max bet\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"42% scheduler\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"web session endpoint\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"web boot session path\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"bank 10%\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"7 day lock\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"admin petsid\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"admin taopet\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"admin baotri\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"admin ban\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"start webhook\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"ownerhelp\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"no canvas\",\n    \"ok\": true,\n    \"detail\": \"\"\n  },\n  {\n    \"name\": \"no raf\",\n    \"ok\": true,\n    \"detail\": \"\"\n  }\n]\n"
+    },
+    {
+      "name": "Runtime route smoke",
+      "ok": true,
+      "detail": "CASINO SLOT VIETNAM LASTFINAL on 19999\n{\n  \"ok\": true,\n  \"firstBalance\": 100000,\n  \"bank\": {\n    \"principal\": 100,\n    \"payout\": 100,\n    \"daysLocked\": 0,\n    \"withdrawReady\": false\n  }\n}\n"
+    }
+  ],
+  "all_pass": true,
+  "game_count": 75,
+  "pet_count": 100,
+  "feature_count": 10000
+}

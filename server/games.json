@@ -3,450 +3,675 @@
     "id": "tai-xiu",
     "name": "Tài Xỉu",
     "category": "Xúc xắc",
-    "mechanic": "dice"
+    "mechanic": "dice",
+    "engine": "dice3",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "lucky-spin",
     "name": "Lucky Spin",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "bau-cua",
     "name": "Bầu Cua Tôm Cá",
     "category": "Đồ hình",
-    "mechanic": "baucua"
+    "mechanic": "baucua",
+    "engine": "baucua",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "xoc-dia",
     "name": "Xóc Đĩa",
     "category": "Đồng xu",
-    "mechanic": "coin"
+    "mechanic": "coin",
+    "engine": "coin4",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "slot-machine",
     "name": "Slot Machine",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "blackjack",
     "name": "Xì Dách",
     "category": "Bài",
-    "mechanic": "cards"
+    "mechanic": "cards",
+    "engine": "blackjack",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "poker",
     "name": "Poker đơn giản",
     "category": "Bài",
-    "mechanic": "poker"
+    "mechanic": "poker",
+    "engine": "poker",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "baccarat",
     "name": "Baccarat",
     "category": "Bài",
-    "mechanic": "baccarat"
+    "mechanic": "baccarat",
+    "engine": "baccarat",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "roulette",
     "name": "Cò quay",
     "category": "Bánh xe",
-    "mechanic": "roulette"
+    "mechanic": "roulette",
+    "engine": "roulette",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "mega-wheel",
     "name": "Mega Wheel",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "plinko",
     "name": "Plinko",
     "category": "Rơi bóng",
-    "mechanic": "plinko"
+    "mechanic": "plinko",
+    "engine": "plinko",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "mines",
     "name": "Dò Mìn",
     "category": "Ô bí mật",
-    "mechanic": "mines"
+    "mechanic": "mines",
+    "engine": "mines",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "crash",
     "name": "Crash Game",
     "category": "Hệ số",
-    "mechanic": "crash"
+    "mechanic": "crash",
+    "engine": "crash",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "dice",
     "name": "Xúc Xắc",
     "category": "Xúc xắc",
-    "mechanic": "dice"
+    "mechanic": "dice",
+    "engine": "dice1",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "coin-flip",
     "name": "Tung Đồng Xu",
     "category": "Đồng xu",
-    "mechanic": "coin"
+    "mechanic": "coin",
+    "engine": "coin",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "hi-lo",
     "name": "Cao Thấp",
     "category": "Bài",
-    "mechanic": "cards"
+    "mechanic": "cards",
+    "engine": "hilo",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "keno",
     "name": "Keno",
     "category": "Bóng số",
-    "mechanic": "keno"
+    "mechanic": "keno",
+    "engine": "keno",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "andar-bahar",
     "name": "Andar Bahar",
     "category": "Bài",
-    "mechanic": "cards"
+    "mechanic": "cards",
+    "engine": "cards",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "sic-bo",
     "name": "Sic Bo",
     "category": "Xúc xắc",
-    "mechanic": "dice"
+    "mechanic": "dice",
+    "engine": "dice3",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "dragon-tiger",
     "name": "Rồng Hổ",
     "category": "Bài",
-    "mechanic": "cards"
+    "mechanic": "cards",
+    "engine": "cards",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "teen-patti",
     "name": "Teen Patti",
     "category": "Bài",
-    "mechanic": "poker"
+    "mechanic": "poker",
+    "engine": "poker",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "red-black",
     "name": "Đỏ Đen",
     "category": "Bài",
-    "mechanic": "cards"
+    "mechanic": "cards",
+    "engine": "cards",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "wheel-7",
     "name": "Vòng 7",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "number-draw",
     "name": "Rút Số",
     "category": "Số",
-    "mechanic": "keno"
+    "mechanic": "keno",
+    "engine": "keno",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "color-pick",
     "name": "Chọn Màu",
     "category": "Màu",
-    "mechanic": "pick"
+    "mechanic": "pick",
+    "engine": "pick",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "gems",
     "name": "Kho Báu Ngọc",
     "category": "Ô",
-    "mechanic": "grid"
+    "mechanic": "grid",
+    "engine": "grid",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "treasure-chest",
     "name": "Rương Kho Báu",
     "category": "Rương",
-    "mechanic": "grid"
+    "mechanic": "grid",
+    "engine": "grid",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "tower",
     "name": "Tháp May Mắn",
     "category": "Tháp",
-    "mechanic": "grid"
+    "mechanic": "grid",
+    "engine": "grid",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "ladder",
     "name": "Bậc Thang",
     "category": "Hệ số",
-    "mechanic": "crash"
+    "mechanic": "crash",
+    "engine": "crash",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "rocket",
     "name": "Tên Lửa",
     "category": "Hệ số",
-    "mechanic": "crash"
+    "mechanic": "crash",
+    "engine": "crash",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "moon-run",
     "name": "Chạy Trăng",
     "category": "Hệ số",
-    "mechanic": "crash"
+    "mechanic": "crash",
+    "engine": "crash",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "sun-wheel",
     "name": "Vòng Mặt Trời",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "fortune-tree",
     "name": "Cây Phú Quý",
     "category": "Cây",
-    "mechanic": "grid"
+    "mechanic": "grid",
+    "engine": "grid",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "golden-eggs",
     "name": "Trứng Vàng",
     "category": "Trứng",
-    "mechanic": "pick"
+    "mechanic": "pick",
+    "engine": "pick",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "mystery-box",
     "name": "Hộp Bí Ẩn",
     "category": "Hộp",
-    "mechanic": "pick"
+    "mechanic": "pick",
+    "engine": "pick",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "dice-duel",
     "name": "Đấu Xúc Xắc",
     "category": "Xúc xắc",
-    "mechanic": "dice"
+    "mechanic": "dice",
+    "engine": "dice3",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "dice-high",
     "name": "Xúc Xắc Cao",
     "category": "Xúc xắc",
-    "mechanic": "dice"
+    "mechanic": "dice",
+    "engine": "dice3",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "dice-low",
     "name": "Xúc Xắc Thấp",
     "category": "Xúc xắc",
-    "mechanic": "dice"
+    "mechanic": "dice",
+    "engine": "dice3",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "double-or-nothing",
     "name": "Gấp Đôi Hay Mất",
     "category": "Lật",
-    "mechanic": "coin"
+    "mechanic": "coin",
+    "engine": "coin",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "safe-crack",
     "name": "Phá Két",
     "category": "Số",
-    "mechanic": "grid"
+    "mechanic": "grid",
+    "engine": "grid",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "vault",
     "name": "Hầm Vàng",
     "category": "Ô",
-    "mechanic": "grid"
+    "mechanic": "grid",
+    "engine": "grid",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "coin-rain",
     "name": "Mưa Xu",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "gold-wheel",
     "name": "Bánh Xe Vàng",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "diamond-wheel",
     "name": "Bánh Xe Kim Cương",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "rainbow-wheel",
     "name": "Bánh Xe Cầu Vồng",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "fire-wheel",
     "name": "Bánh Xe Lửa",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "ice-wheel",
     "name": "Bánh Xe Băng",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "star-wheel",
     "name": "Bánh Xe Sao",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "ocean-wheel",
     "name": "Bánh Xe Đại Dương",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "forest-wheel",
     "name": "Bánh Xe Rừng",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "desert-wheel",
     "name": "Bánh Xe Sa Mạc",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "volcano-wheel",
     "name": "Bánh Xe Núi Lửa",
     "category": "Vòng quay",
-    "mechanic": "wheel"
+    "mechanic": "wheel",
+    "engine": "wheel",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "ninja-reels",
     "name": "Ninja Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "dragon-reels",
     "name": "Dragon Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "phoenix-reels",
     "name": "Phoenix Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "tiger-reels",
     "name": "Tiger Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "lucky-777",
     "name": "Lucky 777",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "fruit-reels",
     "name": "Fruit Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "gem-reels",
     "name": "Gem Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "ocean-reels",
     "name": "Ocean Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "space-reels",
     "name": "Space Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "neon-reels",
     "name": "Neon Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "cyber-reels",
     "name": "Cyber Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "viking-reels",
     "name": "Viking Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "samurai-reels",
     "name": "Samurai Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "royal-reels",
     "name": "Royal Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "ancient-reels",
     "name": "Ancient Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "myth-reels",
     "name": "Myth Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "star-reels",
     "name": "Star Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "moon-reels",
     "name": "Moon Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "sun-reels",
     "name": "Sun Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "rainbow-reels",
     "name": "Rainbow Reels",
     "category": "3 cột",
-    "mechanic": "reels"
+    "mechanic": "reels",
+    "engine": "slot",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "bingo",
     "name": "Bingo",
     "category": "Lô tô",
-    "mechanic": "keno"
+    "mechanic": "keno",
+    "engine": "keno",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "mini-bingo",
     "name": "Mini Bingo",
     "category": "Lô tô",
-    "mechanic": "keno"
+    "mechanic": "keno",
+    "engine": "keno",
+    "durationMs": 3000,
+    "minBet": 100
   },
   {
     "id": "number-21",
     "name": "Số 21",
     "category": "Số",
-    "mechanic": "pick"
+    "mechanic": "pick",
+    "engine": "pick",
+    "durationMs": 3000,
+    "minBet": 100
   }
 ]
