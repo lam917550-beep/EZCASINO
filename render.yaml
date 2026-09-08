@@ -2,7 +2,6 @@ services:
   - type: web
     name: casino-slot-vietnam
     runtime: node
-    plan: free
     buildCommand: npm install
     startCommand: node server/server.js
     healthCheckPath: /health
@@ -15,5 +14,5 @@ services:
         sync: false
       - key: PUBLIC_URL
         sync: false
-      - key: ADMIN_KEY
+      - key: ADMIN_ID
         sync: false
