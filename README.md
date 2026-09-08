@@ -1,35 +1,18 @@
-# CASINO SLOT VIETNAM — V9 ULTRA SMOOTH
+# CASINO SLOT VIETNAM V12
 
-Bản tối ưu ưu tiên thiết bị yếu: 75 game hiển thị trong Mini App, nhưng giữ các module game cũ trong repository để compatibility. Không nạp/rút tiền thật.
-
-## Render
 Build: `npm install`
 Start: `node server/server.js`
 
-ENV:
-- `NODE_ENV=production`
-- `BOT_TOKEN=...`
-- `WEB_APP_URL=https://TEN-APP.onrender.com`
-- `PUBLIC_URL=https://TEN-APP.onrender.com`
-- `ADMIN_ID=TELEGRAM_ID_ADMIN`
+ENV: `NODE_ENV`, `BOT_TOKEN`, `PUBLIC_URL`, `WEB_APP_URL`, `ADMIN_ID`.
 
-## Tính năng V9
-- 75 game curated, server settlement.
-- Tỷ lệ thắng dài hạn 42% theo từng game.
-- Trong 42% thắng: mốc x2 chiếm 7% tổng lượt, còn x1.5 chiếm 35%; x2 thấp hơn x1.5.
-- Cược tối đa 75% số dư, trần 1.000.000 Xu.
-- Đăng nhập theo tháng: thưởng Xu hằng ngày, mốc tháng nhận pet.
-- Ngân hàng: lãi kép 10%/ngày; chỉ rút sau ít nhất 7 ngày.
-- 100 pet, giá tăng dần; pet tăng XP và Xu, không tăng tỷ lệ thắng.
-- Mỗi pet shop mua 1 lần; vật phẩm daily mua 1 lần/ngày.
-- Bán pet nhận 40% giá mua.
-- XP cho cả thắng/thua; ngưỡng XP tăng theo level; level-up có Xu và pet phần thưởng.
-- BXH giàu, streak, XP, thắng tuần.
-- `/petsid` chỉ ADMIN để xem 100 ID pet.
-- `/ownerhelp` chỉ ADMIN.
-- `/start` trả nút mở Mini App.
-- SFX nhẹ bằng Web Audio; không cần file âm thanh trả phí.
-- Không canvas/particle/requestAnimationFrame/scroll animation nặng.
+Bản V12 giữ bộ game 75, 100 pet, dữ liệu lịch sử và cấu trúc `assets/`, `games/`, `server/`. Có 1.000 micro-feature definitions trong `FEATURES_1000.md`.
 
-## Lưu ý
-Không có cách bảo đảm 0 lag tuyệt đối trên mọi thiết bị vì Telegram WebView/phần cứng khác nhau. Source này loại bỏ các hoạt động render liên tục nặng nhất và giảm DOM ban đầu.
+Hiệu năng: render theo batch, event delegation, Web Audio SFX cục bộ, cache static, JSON writes bất đồng bộ. Các animation chỉ chạy ở visual game đang mở.
+
+Lệnh ADMIN: `/ownerhelp`, `/thongbao`, `/taogiftcode`, `/taoevent`, `/gift`, `/setxu`, `/setvip`, `/setlevel`, `/addpet`, `/removepet`, `/taopet`, `/petsid`, `/ban`, `/unban`, `/baotri`, `/resetstreak`, `/stats`.
+
+Đây là game Xu ảo, không có nạp/rút tiền thật.
+
+
+## Giao diện đã chọn
+V12 áp dụng concept A — thanh lịch/sáng: xanh trời, hero phong cách thiên đường, card game sáng và bố cục ưu tiên WebView. Ảnh hero đã được nén nhẹ; không dùng ảnh làm background cho toàn bộ trang.

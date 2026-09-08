@@ -17,7 +17,7 @@ const BOT_TOKEN=String(process.env.BOT_TOKEN||'');
 const WEB_APP_URL=String(process.env.WEB_APP_URL||process.env.PUBLIC_URL||'').replace(/\/$/,'');
 const PUBLIC_URL=String(process.env.PUBLIC_URL||WEB_APP_URL).replace(/\/$/,'');
 const ADMIN_ID=String(process.env.ADMIN_ID||'');
-let db={players:{},history:[],chat:[],giftcodes:{},blocked:{},noticeLog:[]};
+let db={players:{},history:[],chat:[],giftcodes:{},blocked:{},noticeLog:[],events:[],petDefs:[]};
 try{Object.assign(db,JSON.parse(fs.readFileSync(DB_PATH,'utf8')))}catch{}
 for(const [k,v] of Object.entries({players:{},history:[],chat:[],giftcodes:{},blocked:{},noticeLog:[]}))if(!db[k])db[k]=v;
 let saveTimer=null,saveRunning=false,dirty=false;
@@ -36,9 +36,11 @@ function monthlyReward(streak){
 function ensure(u){
   if(!u||u.id===undefined||u.id===null)throw Error('Thiếu Telegram ID.');
   const id=String(u.id);let p=db.players[id];
-  if(!p){p={id,name:'Người chơi',username:String(u.username||'').slice(0,60),photo_url:String(u.photo_url||''),balance:100000,level:1,xp:0,vip:0,vipPoints:0,currentStreak:0,bestStreak:0,lastLogin:null,loginMonth:null,monthlyStreak:0,monthlyMonth:null,totalPlays:0,totalWins:0,totalWinXu:0,totalLossXu:0,weeklyWins:0,freeSpins:0,inventory:{},pets:{},activePet:null,needsName:true,gameStats:{},friends:0,bank:{principal:0,lastDepositAt:null,lastInterestAt:null},dailyShop:{},createdAt:Date.now()};db.players[id]=p;save()}
+  if(!p){p={id,name:'Người chơi',username:String(u.username||'').slice(0,60),photo_url:String(u.photo_url||''),balance:100000,level:1,xp:0,vip:0,vipPoints:0,currentStreak:0,bestStreak:0,lastLogin:null,loginMonth:null,monthlyStreak:0,monthlyMonth:null,totalPlays:0,totalWins:0,totalWinXu:0,totalLossXu:0,totalXp:0,weeklyWins:0,freeSpins:0,inventory:{},pets:{},activePet:null,needsName:true,needsProfile:true,passwordHash:null,passwordSalt:null,gameStats:{},friends:0,bank:{principal:0,lastDepositAt:null,lastInterestAt:null},dailyShop:{},createdAt:Date.now()};db.players[id]=p;save()}
   // Preserve existing Telegram first name only as a fallback, but force a custom name UI for first entry.
   if(p.needsName===undefined)p.needsName=!p.name||p.name==='Người chơi';
+  if(p.needsProfile===undefined)p.needsProfile=!usernameFree(p.username,p.id)||!p.passwordHash;
+  if(p.totalXp===undefined)p.totalXp=0;
   const today=day(),mon=month();
   if(p.lastLogin!==today){
     const last=p.lastLogin?new Date(p.lastLogin+'T00:00:00Z'):null;const now=new Date(today+'T00:00:00Z');
@@ -62,10 +64,12 @@ function applyBankInterest(p){
   p.bank.principal=Math.floor(p.bank.principal*Math.pow(1.10,full));
   p.bank.lastInterestAt+=full*86400000;save();
 }
-function safe(p){const q=JSON.parse(JSON.stringify(p));delete q._reward;return q}
+function safe(p){const q=JSON.parse(JSON.stringify(p));delete q._reward;delete q.passwordHash;delete q.passwordSalt;return q}
 const defs=JSON.parse(fs.readFileSync(path.join(__dirname,'games.json'),'utf8'));
-const GAME_MAP=new Map(defs.map(g=>[g.id,g]));
+const ACTIVE_DEFS=defs.slice(0,75);
+const GAME_MAP=new Map(ACTIVE_DEFS.map(g=>[g.id,g]));
 const PETS=JSON.parse(fs.readFileSync(path.join(__dirname,'pets.json'),'utf8'));
+for(const custom of Array.isArray(db.petDefs)?db.petDefs:[]){if(custom?.id&&!PETS.some(p=>p.id===custom.id))PETS.push(custom)}
 const PET_MAP=new Map(PETS.map(p=>[p.id,p]));
 const SHOP={
   lucky_ticket:{name:'Vé Lucky Spin',price:2500,once:false,daily:true},
@@ -75,6 +79,12 @@ const SHOP={
   sound_pack:{name:'Gói Âm Thanh',price:7000,once:true}
 };
 const RENAME_FEE=5000;
+const PASSWORD_MIN=8;
+const COOLDOWN_MS=3000;
+const playCooldown=new Map();
+function hashPassword(password,salt=crypto.randomBytes(16).toString('hex')){const hash=crypto.scryptSync(String(password),salt,64).toString('hex');return {hash,salt}}
+function verifyPassword(password,p){try{return crypto.timingSafeEqual(Buffer.from(hashPassword(password,p.passwordSalt).hash,'hex'),Buffer.from(p.passwordHash,'hex'))}catch{return false}}
+function usernameFree(username,exceptId=''){const u=String(username||'').toLowerCase();return u && !Object.values(db.players).some(p=>String(p.username||'').toLowerCase()===u&&String(p.id)!==String(exceptId))}
 function maxBet(b){return Math.min(1000000,Math.floor(Number(b||0)*.75))}
 function petBonus(p){const x=PET_MAP.get(p.activePet);return x||{xpPct:0,moneyPct:0}}
 function winGate(p,g){
@@ -102,25 +112,30 @@ function displayFor(g){
   return d;
 }
 function newSession(user){const token=crypto.randomBytes(24).toString('hex');sessions.set(token,{id:String(user.id),created:Date.now()});return token}
-function sessionUser(req){const token=req.get('X-App-Session')||req.body?.session||req.query?.session||'';const s=sessions.get(String(token));if(!s)throw Error('Phiên không hợp lệ. Hãy mở lại Mini App.');if(Date.now()-s.created>86400000){sessions.delete(token);throw Error('Phiên đã hết hạn.')}if(db.blocked[s.id])throw Error('Tài khoản đang bị khóa.');const p=db.players[s.id];if(!p)throw Error('Người chơi không tồn tại.');applyBankInterest(p);return p}
-function tgVerify(initData){if(!BOT_TOKEN||!initData)return false;try{const p=new URLSearchParams(initData),hash=p.get('hash');if(!hash)return false;p.delete('hash');const dc=[...p.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>`${k}=${v}`).join('\n');const key=crypto.createHmac('sha256','WebAppData').update(BOT_TOKEN).digest();const exp=crypto.createHmac('sha256',key).update(dc).digest('hex');return exp===hash}catch{return false}}
+function sessionUser(req){const token=req.get('X-App-Session')||req.body?.session||req.query?.session||'';const s=sessions.get(String(token));if(!s)throw Error('Phiên không hợp lệ. Hãy mở lại Mini App.');if(Date.now()-s.created>86400000){sessions.delete(token);throw Error('Phiên đã hết hạn.')}const ban=db.blocked[s.id];if(ban){if(ban.until&&Date.now()>=ban.until){delete db.blocked[s.id];save()}else throw Error('Tài khoản đang bị khóa.');}const p=db.players[s.id];if(!p)throw Error('Người chơi không tồn tại.');applyBankInterest(p);return p}
+function tgVerify(initData){if(!BOT_TOKEN||!initData)return false;try{const p=new URLSearchParams(initData),hash=p.get('hash');if(!hash)return false;p.delete('hash');const dc=[...p.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>`${k}=${v}`).join('\n');const key=crypto.createHmac('sha256','WebAppData').update(BOT_TOKEN).digest();const exp=crypto.createHmac('sha256',key).update(dc).digest('hex');if(exp.length!==hash.length)return false;return crypto.timingSafeEqual(Buffer.from(exp),Buffer.from(hash))}catch{return false}}
 function requestUser(req){const init=req.body?.initData||req.get('X-Telegram-Init-Data')||'';if(BOT_TOKEN){if(!tgVerify(init))throw Error('Xác thực Telegram thất bại. Hãy mở Mini App từ bot.');const raw=new URLSearchParams(init).get('user');const u=raw?JSON.parse(raw):null;if(!u?.id)throw Error('Thiếu Telegram ID.');return u}const u=req.body?.telegramUser;if(u?.id)return u;throw Error('Thiếu Telegram ID.')}
 function auth(req){return sessionUser(req)}
 function adminId(){return ADMIN_ID}
-app.get('/health',(req,res)=>res.json({ok:true,service:'casino-slot-vietnam-v9',gameCount:defs.length}));
-app.post('/api/bootstrap',(req,res)=>{try{const u=requestUser(req),p=ensure(u),session=newSession(u),r=p._reward||null;delete p._reward;res.json({ok:true,session,player:safe(p),loginReward:r,gameCount:defs.length,pets:PETS.map(p=>({id:p.id,name:p.name,emoji:p.emoji,price:p.price,xpPct:p.xpPct,moneyPct:p.moneyPct,tier:p.tier,shop:p.shop})),shop:SHOP,bank:p.bank,xpNeeded:xpNeeded(p.level)})}catch(e){res.status(401).json({error:e.message})}});
-app.post('/api/play',(req,res)=>{try{if(maintenance)throw Error('Hệ thống đang bảo trì.');const p=auth(req),g=GAME_MAP.get(String(req.body.gameId||''));if(!g)throw Error('Game không tồn tại.');const bet=Math.floor(Number(req.body.bet)),max=maxBet(p.balance);if(!Number.isSafeInteger(bet)||bet<100||bet>max)throw Error(`Cược hợp lệ: 100–${max.toLocaleString('vi-VN')} Xu`);if(p.balance<bet)throw Error('Không đủ Xu.');const rid=String(req.body.requestId||'');if(rid&&seen.has(rid))throw Error('Lượt chơi đã được xử lý.');if(rid)seen.set(rid,Date.now());for(const [k,t] of seen)if(Date.now()-t>120000)seen.delete(k);
+app.get('/health',(req,res)=>res.json({ok:true,service:'casino-slot-vietnam-v12',gameCount:ACTIVE_DEFS.length}));
+app.post('/api/bootstrap',(req,res)=>{try{const u=requestUser(req),p=ensure(u),session=newSession(u),r=p._reward||null;delete p._reward;res.json({ok:true,session,player:safe(p),loginReward:r,gameCount:ACTIVE_DEFS.length,games:ACTIVE_DEFS,pets:PETS.map(p=>({id:p.id,name:p.name,emoji:p.emoji,price:p.price,xpPct:p.xpPct,moneyPct:p.moneyPct,tier:p.tier,shop:p.shop})),shop:SHOP,bank:p.bank,xpNeeded:xpNeeded(p.level)})}catch(e){res.status(401).json({error:e.message})}});
+app.post('/api/play',(req,res)=>{try{if(maintenance)throw Error('Hệ thống đang bảo trì.');const p=auth(req),g=GAME_MAP.get(String(req.body.gameId||''));if(!g)throw Error('Game không tồn tại.');const now=Date.now();const lastPlay=playCooldown.get(p.id)||0;if(now-lastPlay<COOLDOWN_MS)throw Error('Bạn đang chơi quá nhanh. Chờ 3 giây giữa hai ván.');playCooldown.set(p.id,now);for(const [id,t] of playCooldown)if(now-t>60000)playCooldown.delete(id);const bet=Math.floor(Number(req.body.bet)),max=maxBet(p.balance);if(!Number.isSafeInteger(bet)||bet<100||bet>max)throw Error(`Cược hợp lệ: 100–${max.toLocaleString('vi-VN')} Xu`);if(p.balance<bet)throw Error('Không đủ Xu.');const rid=String(req.body.requestId||'');if(rid&&seen.has(rid))throw Error('Lượt chơi đã được xử lý.');if(rid)seen.set(rid,Date.now());for(const [k,t] of seen)if(Date.now()-t>120000)seen.delete(k);
  const win=winGate(p,g),mult=multiplierFor(p,g,win),display=displayFor(g);const pb=petBonus(p);p.balance-=bet;p.totalPlays++;p.vipPoints+=Math.max(1,Math.floor(bet/100));
- let xpGain=Math.max(5,12+Math.floor(bet/1000));if(win)xpGain+=8;xpGain=Math.floor(xpGain*(1+pb.xpPct/100));p.xp+=xpGain;
+ let xpGain=Math.max(5,12+Math.floor(bet/1000));if(win)xpGain+=8;xpGain=Math.floor(xpGain*(1+pb.xpPct/100));p.xp+=xpGain;p.totalXp+=xpGain;
  const gs=p.gameStats[g.id]||{plays:0,wins:0};gs.plays++;if(win)gs.wins++;p.gameStats[g.id]=gs;
  if(win){let profit=Math.floor(bet*mult*(1+pb.moneyPct/100));p.balance+=bet+profit;p.totalWins++;p.totalWinXu+=profit;p.weeklyWins++;if(mult===2)broadcast('big_win',{name:p.name,game:g.name,profit});}
  else p.totalLossXu+=bet;
  let levels=[];while(p.xp>=xpNeeded(p.level)){p.xp-=xpNeeded(p.level);p.level++;const levelPet=PETS.find(x=>x.id===`PET${80+Math.min(20,p.level)}`);let rewardXu=Math.min(50000,p.level*750);p.balance+=rewardXu;levels.push({level:p.level,xu:rewardXu,pet:levelPet?.id||null});if(levelPet)p.pets[levelPet.id]=(p.pets[levelPet.id]||0)+1}
  p.vip=Math.min(20,Math.floor(p.vipPoints/1000));db.history.unshift({id:crypto.randomUUID(),userId:p.id,gameId:g.id,gameName:g.name,bet,result:win?'win':'lose',multiplier:mult,xpGain,time:Date.now()});if(db.history.length>12000)db.history.length=12000;save();broadcast('player_update',{id:p.id,balance:p.balance,level:p.level,xp:p.xp});res.json({ok:true,player:safe(p),result:{win,multiplier:mult,display,xpGain,levelUps:levels}})
 }catch(e){res.status(400).json({error:e.message})}});
+app.post('/api/web/register',(req,res)=>{try{const name=String(req.body.name||'').trim(),username=String(req.body.username||'').trim().toLowerCase(),password=String(req.body.password||'');if(name.length<2||name.length>40)throw Error('Tên cần 2–40 ký tự.');if(!/^[a-z0-9_]{3,20}$/.test(username))throw Error('Username chỉ gồm a-z, 0-9, _.');if(!usernameFree(username))throw Error('Username đã được sử dụng.');if(password.length<PASSWORD_MIN)throw Error('Mật khẩu cần ít nhất 8 ký tự.');const id='web_'+crypto.randomUUID();const hp=hashPassword(password);const p={id,name,username,passwordHash:hp.hash,passwordSalt:hp.salt,photo_url:'',balance:100000,level:1,xp:0,vip:0,vipPoints:0,currentStreak:0,bestStreak:0,lastLogin:null,loginMonth:null,monthlyStreak:0,monthlyMonth:null,totalPlays:0,totalWins:0,totalWinXu:0,totalLossXu:0,totalXp:0,weeklyWins:0,freeSpins:0,inventory:{},pets:{},activePet:null,needsName:false,needsProfile:false,gameStats:{},friends:0,bank:{principal:0,lastDepositAt:null,lastInterestAt:null},dailyShop:{},createdAt:Date.now()};db.players[id]=p;save();const session=newSession({id});res.json({ok:true,session,player:safe(p),games:ACTIVE_DEFS,pets:PETS.map(p=>({id:p.id,name:p.name,emoji:p.emoji,price:p.price,xpPct:p.xpPct,moneyPct:p.moneyPct,tier:p.tier,shop:p.shop}))})}catch(e){res.status(400).json({error:e.message})}});
+app.post('/api/web/login',(req,res)=>{try{const username=String(req.body.username||'').trim().toLowerCase(),password=String(req.body.password||'');let p=Object.values(db.players).find(x=>String(x.username||'').toLowerCase()===username&&x.passwordHash);if(!p||!verifyPassword(password,p))throw Error('Sai username hoặc mật khẩu.');p=ensure({id:p.id,username:p.username});if(db.blocked[p.id])throw Error('Tài khoản đang bị khóa.');const session=newSession({id:p.id});applyBankInterest(p);res.json({ok:true,session,player:safe(p),games:ACTIVE_DEFS,pets:PETS.map(p=>({id:p.id,name:p.name,emoji:p.emoji,price:p.price,xpPct:p.xpPct,moneyPct:p.moneyPct,tier:p.tier,shop:p.shop}))})}catch(e){res.status(401).json({error:e.message})}});
+
 app.get('/api/history',(req,res)=>res.json(db.history.filter(x=>String(x.userId)===String(req.query.id||'')).slice(0,80)));
-app.get('/api/rankings',(req,res)=>{const ps=Object.values(db.players);res.json({richest:ps.slice().sort((a,b)=>b.balance-a.balance).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,balance:p.balance})),streak:ps.slice().sort((a,b)=>b.bestStreak-a.bestStreak).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,streak:p.bestStreak})),xp:ps.slice().sort((a,b)=>(b.level-a.level)||(b.xp-a.xp)).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,level:p.level,xp:p.xp,totalXp:(p.level*100000)+p.xp})),weekly:ps.slice().sort((a,b)=>b.weeklyWins-a.weeklyWins).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,wins:p.weeklyWins}))})});
+app.get('/api/rankings',(req,res)=>{const ps=Object.values(db.players);res.json({richest:ps.slice().sort((a,b)=>b.balance-a.balance).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,username:p.username,balance:p.balance})),streak:ps.slice().sort((a,b)=>b.bestStreak-a.bestStreak).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,username:p.username,streak:p.bestStreak})),xp:ps.slice().sort((a,b)=>(b.level-a.level)||(b.xp-a.xp)).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,username:p.username,level:p.level,xp:p.xp,totalXp:(p.level*100000)+p.xp})),weekly:ps.slice().sort((a,b)=>b.weeklyWins-a.weeklyWins).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,username:p.username,wins:p.weeklyWins}))})});
 app.get('/api/events',(req,res)=>{res.setHeader('Content-Type','text/event-stream');res.setHeader('Cache-Control','no-cache,no-transform');res.setHeader('Connection','keep-alive');res.setHeader('X-Accel-Buffering','no');res.write(`event: ping\ndata: ${Date.now()}\n\n`);clients.add(res);req.on('close',()=>clients.delete(res))});
+app.post('/api/profile/setup',(req,res)=>{try{const p=auth(req),name=String(req.body.name||'').trim(),username=String(req.body.username||'').trim().toLowerCase(),password=String(req.body.password||'');if(name.length<2||name.length>40)throw Error('Tên cần 2–40 ký tự.');if(!/^[a-z0-9_]{3,20}$/.test(username))throw Error('Username chỉ gồm a-z, 0-9, _.');if(!usernameFree(username,p.id))throw Error('Username đã được sử dụng.');if(password.length<PASSWORD_MIN)throw Error('Mật khẩu cần ít nhất 8 ký tự.');const hp=hashPassword(password);p.name=name;p.username=username;p.passwordHash=hp.hash;p.passwordSalt=hp.salt;p.needsProfile=false;p.needsName=false;save();res.json({ok:true,player:safe(p)})}catch(e){res.status(400).json({error:e.message})}});
+
 app.post('/api/profile/name',(req,res)=>{try{const p=auth(req),name=String(req.body.name||'').trim().slice(0,40);if(!/^[\p{L}0-9 _.-]{2,40}$/u.test(name))throw Error('Tên cần 2–40 ký tự.');const first=String(req.body.first||'')==='true';let fee=0;if(!p.needsName||!first){fee=RENAME_FEE;if(p.balance<fee)throw Error(`Đổi tên cần ${RENAME_FEE.toLocaleString('vi-VN')} Xu.`);p.balance-=fee}p.name=name;p.needsName=false;save();res.json({ok:true,fee,player:safe(p)})}catch(e){res.status(400).json({error:e.message})}});
 app.get('/api/pets',(req,res)=>res.json({pets:PETS}));
 app.post('/api/pets/buy',(req,res)=>{try{const p=auth(req),id=String(req.body.petId||''),pet=PET_MAP.get(id);if(!pet||!pet.shop)throw Error('Pet không bán trong cửa hàng.');if(p.pets[id])throw Error('Pet này chỉ mua 1 lần.');if(p.balance<pet.price)throw Error('Không đủ Xu.');p.balance-=pet.price;p.pets[id]=1;if(!p.activePet)p.activePet=id;save();res.json({ok:true,player:safe(p)})}catch(e){res.status(400).json({error:e.message})}});
@@ -137,7 +152,25 @@ function adminUser(req){const token=req.get('X-App-Session')||req.body?.session,
 async function tg(method,body){if(!BOT_TOKEN)return null;const r=await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/${method}`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});return r.json()}
 function botButtons(){return{inline_keyboard:[[WEB_APP_URL?{text:'🎰 MỞ CASINO',web_app:{url:WEB_APP_URL}}:{text:'🎰 CASINO',callback_data:'no_url'}],[{text:'🎁 Giftcode',callback_data:'gift_help'}]]}}
 function webhookResponse(text,chatId,markup){return{method:'sendMessage',chat_id:chatId,text,reply_markup:markup||botButtons()}}
-function ownerHelp(){return`🛡️ LỆNH ADMIN\n\n/thongbao <nội dung> — broadcast tới người dùng.\n/taogiftcode <CODE> <XU> [PET_ID] — tạo giftcode.\n/gift <ID> <XU|pet:PET_ID> — tặng Xu/pet.\n/setxu <ID> <XU> — đặt số dư.\n/setvip <ID> <0-20> — đặt VIP.\n/setlevel <ID> <level> — đặt cấp.\n/addpet <ID> <PET_ID> [SL] — thêm pet.\n/removepet <ID> <PET_ID> [SL] — xóa pet.\n/petsid — danh sách toàn bộ 100 PET ID.\n/block <ID> — khóa.\n/unblock <ID> — mở khóa.\n/resetstreak <ID> — reset streak.\n/stats — thống kê server.\n/maintenance <on|off> — bảo trì.\n/ownerhelp — xem lệnh admin.`}
+function ownerHelp(){return`ADMIN
+
+/thongbao <noi dung>
+/taogiftcode <CODE> <XU> [PET_ID]
+/taoevent <random|xu|pet> <GIA_TRI> <NOI_DUNG>
+/gift <ID> <XU|pet:PET_ID>
+/setxu <ID> <XU>
+/setvip <ID> <0-20>
+/setlevel <ID> <LEVEL>
+/addpet <ID> <PET_ID> [SL]
+/removepet <ID> <PET_ID> [SL]
+/taopet <PET_ID> <XU%> <XP%> <ICON> [Ten]
+/petsid
+/ban <ID> <phut>|inf
+/unban <ID>
+/baotri on|off
+/resetstreak <ID>
+/stats
+/ownerhelp`}
 function parseBotCommand(text){const p=String(text||'').trim().split(/\s+/),first=(p.shift()||'').split('@')[0].toLowerCase();return{cmd:first,parts:p}}
 async function botUpdate(update){const m=update?.message;if(!m)return null;const chatId=m.chat?.id,from=String(m.from?.id||''),text=String(m.text||'').trim(),{cmd,parts}=parseBotCommand(text);if(cmd==='/start')return webhookResponse(`🎰 CASINO SLOT VIETNAM\n\nChào mừng ${m.from?.first_name||'bạn'}! Nhấn nút dưới để mở Mini App.\n\nXu ảo · chơi giải trí · không nạp/rút tiền thật.\n\n👑 Chủ bot: @itznvl`,chatId,botButtons());if(cmd==='/ownerhelp')return isAdmin(from)?webhookResponse(ownerHelp(),chatId,{remove_keyboard:true}):webhookResponse('Lệnh không khả dụng.',chatId);if(!isAdmin(from))return null;
 if(cmd==='/petsid')return webhookResponse(`🐾 100 PET ID\n\n${PETS.map(p=>`${p.id} — ${p.name} · ${p.price.toLocaleString('vi-VN')} Xu`).join('\n')}`,chatId,{remove_keyboard:true});
@@ -148,13 +181,19 @@ if(cmd==='/setxu'){const p=db.players[String(parts[0]||'')],n=Number(parts[1]);i
 if(cmd==='/setvip'){const p=db.players[String(parts[0]||'')],n=Number(parts[1]);if(!p||!Number.isInteger(n)||n<0||n>20)return webhookResponse('Dùng: /setvip ID 0-20',chatId);p.vip=n;save();return webhookResponse('✅ Đã đặt VIP.',chatId)}
 if(cmd==='/setlevel'){const p=db.players[String(parts[0]||'')],n=Number(parts[1]);if(!p||!Number.isInteger(n)||n<1)return webhookResponse('Dùng: /setlevel ID level',chatId);p.level=n;p.xp=0;save();return webhookResponse('✅ Đã đặt cấp.',chatId)}
 if(cmd==='/addpet'||cmd==='/removepet'){const p=db.players[String(parts[0]||'')],pet=String(parts[1]||'').toUpperCase(),n=Math.max(1,Number(parts[2]||1));if(!p||!PET_MAP.has(pet)||!Number.isSafeInteger(n))return webhookResponse(`Dùng: ${cmd} ID PET_ID [SL]`,chatId);p.pets[pet]=(p.pets[pet]||0)+(cmd==='/addpet'?n:-n);if(p.pets[pet]<=0)delete p.pets[pet];save();return webhookResponse('✅ Đã cập nhật pet.',chatId)}
-if(cmd==='/block'||cmd==='/unblock'){const id=String(parts[0]||'');if(!db.players[id])return webhookResponse('Không tìm thấy ID.',chatId);if(cmd==='/block')db.blocked[id]={at:Date.now(),by:from};else delete db.blocked[id];save();return webhookResponse('✅ Đã cập nhật trạng thái.',chatId)}
+if(cmd==='/ban'||cmd==='/unban'||cmd==='/block'||cmd==='/unblock'){const id=String(parts[0]||'');if(!db.players[id])return webhookResponse('Không tìm thấy ID.',chatId);if(cmd==='/ban'||cmd==='/block'){const duration=parts[1]||'inf';const mins=duration==='inf'?0:Number(duration);if(duration!=='inf'&&(!Number.isFinite(mins)||mins<=0))return webhookResponse('Dùng: /ban ID số_phút hoặc /ban ID inf',chatId);db.blocked[id]={at:Date.now(),by:from,until:duration==='inf'?null:Date.now()+mins*60000};}else{delete db.blocked[id];}save();return webhookResponse('✅ Đã cập nhật trạng thái.',chatId)}
 if(cmd==='/resetstreak'){const p=db.players[String(parts[0]||'')];if(!p)return webhookResponse('Không tìm thấy ID.',chatId);p.currentStreak=0;p.monthlyStreak=0;save();return webhookResponse('✅ Đã reset streak.',chatId)}
-if(cmd==='/stats'){const ps=Object.values(db.players);return webhookResponse(`📊 SERVER\nNgười chơi: ${ps.length}\nGame: ${defs.length}\nLịch sử: ${db.history.length}\nGiftcode: ${Object.keys(db.giftcodes).length}\nChat: ${db.chat.length}`,chatId)}
-if(cmd==='/maintenance'){const v=(parts[0]||'').toLowerCase();if(!['on','off'].includes(v))return webhookResponse('Dùng: /maintenance on|off',chatId);maintenance=v==='on';return webhookResponse(`✅ Bảo trì: ${maintenance?'BẬT':'TẮT'}.`,chatId)}
+if(cmd==='/stats'){const ps=Object.values(db.players);return webhookResponse(`📊 SERVER\nNgười chơi: ${ps.length}\nGame: ${ACTIVE_DEFS.length}\nLịch sử: ${db.history.length}\nGiftcode: ${Object.keys(db.giftcodes).length}\nChat: ${db.chat.length}`,chatId)}
+if(cmd==='/taoevent'){const type=String(parts[0]||'random'),value=String(parts[1]||''),content=parts.slice(2).join(' ');if(!content)return webhookResponse('Dùng: /taoevent random|xu|pet GIÁ_TRỊ NỘI_DUNG',chatId);db.events=db.events||[];db.events.push({id:crypto.randomUUID(),type,value,content,by:from,time:Date.now()});save();for(const id of Object.keys(db.players))tg('sendMessage',{chat_id:id,text:`🎉 EVENT
+
+${content}`}).catch(()=>{});return webhookResponse('✅ Đã tạo event và thông báo.',chatId)}
+if(cmd==='/taopet'){const id=String(parts[0]||'').toUpperCase(),moneyPct=Number(parts[1]),xpPct=Number(parts[2]),emoji=parts[3]||'🐾',name=parts.slice(4).join(' ')||id;if(!id||PET_MAP.has(id)||!Number.isFinite(moneyPct)||!Number.isFinite(xpPct))return webhookResponse('Dùng: /taopet PET_ID XU% XP% ICON [Tên]',chatId);const pet={id,name,emoji,price:Math.max(1000,Math.round((moneyPct+xpPct+1)*10000)),xpPct,moneyPct,tier:'ADMIN',shop:false,source:'admin'};db.petDefs=db.petDefs||[];db.petDefs.push(pet);PETS.push(pet);PET_MAP.set(id,pet);save();return webhookResponse(`✅ Đã tạo pet ${id}.`,chatId)}
+if(cmd==='/baotri'||cmd==='/maintenance'){const v=(parts[0]||'').toLowerCase();if(!['on','off'].includes(v))return webhookResponse('Dùng: /baotri on|off',chatId);maintenance=v==='on';for(const id of Object.keys(db.players))tg('sendMessage',{chat_id:id,text:`🛠️ BẢO TRÌ
+
+Hệ thống đang ${maintenance?'bảo trì':'hoạt động trở lại'}.`}).catch(()=>{});return webhookResponse(`✅ Bảo trì: ${maintenance?'BẬT':'TẮT'}.`,chatId)}
 return webhookResponse('Lệnh ADMIN không hợp lệ. Dùng /ownerhelp.',chatId)}
 app.post('/telegram/webhook',async(req,res)=>{try{if(req.body?.callback_query){if(req.body.callback_query.data==='gift_help')return res.status(200).json({method:'answerCallbackQuery',callback_query_id:req.body.callback_query.id,text:'Mở Mini App để nhập giftcode.'});return res.sendStatus(200)}const out=await botUpdate(req.body);return out?res.status(200).json(out):res.sendStatus(200)}catch(e){console.error('Webhook',e.message);return res.sendStatus(200)}});
 app.post('/api/admin/set-webhook',async(req,res)=>{try{adminUser(req);const base=String(req.body.url||PUBLIC_URL).replace(/\/$/,'');if(!base)throw Error('Thiếu URL.');res.json(await tg('setWebhook',{url:base+'/telegram/webhook',allowed_updates:['message','callback_query']}))}catch(e){res.status(403).json({error:e.message})}});
 app.use(express.static(ROOT));
 (async()=>{if(BOT_TOKEN&&PUBLIC_URL){try{const r=await tg('setWebhook',{url:PUBLIC_URL+'/telegram/webhook',allowed_updates:['message','callback_query']});console.log('Telegram webhook',r?.ok?'OK':'FAILED')}catch(e){console.error('Webhook setup',e.message)}}})();
-app.listen(PORT,'0.0.0.0',()=>console.log(`CASINO SLOT VIETNAM V9 on ${PORT}`));
+app.listen(PORT,'0.0.0.0',()=>console.log(`CASINO SLOT VIETNAM V12 on ${PORT}`));
