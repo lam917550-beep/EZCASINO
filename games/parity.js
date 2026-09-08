@@ -1,2 +1,2 @@
-export const game={id:'parity',name:'Chẵn Lẻ',category:'Số'};
-export function createRound(input={}){return {gameId:game.id,payload:input,createdAt:Date.now()}}
+export const game = {"id":"parity","name":"Chẵn Lẻ","category":"Số","mechanic":"number","phases":["chuẩn bị","hoạt ảnh","tiết lộ","kết quả"]};
+export function createRound(seed){return {gameId:game.id,mechanic:game.mechanic,seed,phases:game.phases};}

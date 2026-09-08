@@ -11,3 +11,9 @@ services:
         value: production
       - key: BOT_TOKEN
         sync: false
+      - key: WEB_APP_URL
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: ADMIN_KEY
+        sync: false
