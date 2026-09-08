@@ -1,0 +1,902 @@
+[
+  {
+    "id": "pet_001",
+    "name": "Mèo Mây 1",
+    "emoji": "🐱",
+    "price": 10000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_002",
+    "name": "Cá Koi 2",
+    "emoji": "🐟",
+    "price": 30000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_003",
+    "name": "Cáo Tuyết 3",
+    "emoji": "🦊",
+    "price": 50000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_004",
+    "name": "Thỏ Ngọc 4",
+    "emoji": "🐰",
+    "price": 70000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_005",
+    "name": "Hổ Vàng 5",
+    "emoji": "🐯",
+    "price": 90000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_006",
+    "name": "Rồng Xanh 6",
+    "emoji": "🐉",
+    "price": 110000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_007",
+    "name": "Rồng Đỏ 7",
+    "emoji": "🐲",
+    "price": 130000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_008",
+    "name": "Phượng Hoàng 8",
+    "emoji": "🔥",
+    "price": 150000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_009",
+    "name": "Kỳ Lân 9",
+    "emoji": "🦄",
+    "price": 170000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_010",
+    "name": "Gấu Nâu 10",
+    "emoji": "🐻",
+    "price": 190000,
+    "xpPct": 1,
+    "moneyPct": 1,
+    "tier": 1
+  },
+  {
+    "id": "pet_011",
+    "name": "Gấu Băng 11",
+    "emoji": "🐻‍❄️",
+    "price": 210000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_012",
+    "name": "Sóc Vàng 12",
+    "emoji": "🐿️",
+    "price": 230000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_013",
+    "name": "Hạc Trắng 13",
+    "emoji": "🦢",
+    "price": 250000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_014",
+    "name": "Hươu Sao 14",
+    "emoji": "🦌",
+    "price": 270000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_015",
+    "name": "Sư Tử 15",
+    "emoji": "🦁",
+    "price": 290000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_016",
+    "name": "Báo Đen 16",
+    "emoji": "🐆",
+    "price": 310000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_017",
+    "name": "Chim Ưng 17",
+    "emoji": "🦅",
+    "price": 330000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_018",
+    "name": "Cá Voi 18",
+    "emoji": "🐋",
+    "price": 350000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_019",
+    "name": "Cá Heo 19",
+    "emoji": "🐬",
+    "price": 370000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_020",
+    "name": "Rùa Ngọc 20",
+    "emoji": "🐢",
+    "price": 390000,
+    "xpPct": 1,
+    "moneyPct": 2,
+    "tier": 1
+  },
+  {
+    "id": "pet_021",
+    "name": "Bạch Tuộc 21",
+    "emoji": "🐙",
+    "price": 410000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_022",
+    "name": "Cáo Lửa 22",
+    "emoji": "🦊",
+    "price": 425000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_023",
+    "name": "Mèo Bạc 23",
+    "emoji": "🐈",
+    "price": 440000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_024",
+    "name": "Chó Hoàng Kim 24",
+    "emoji": "🐕",
+    "price": 455000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_025",
+    "name": "Chó Tuyết 25",
+    "emoji": "🐩",
+    "price": 470000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_026",
+    "name": "Chim Cánh Cụt 26",
+    "emoji": "🐧",
+    "price": 485000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_027",
+    "name": "Voi Vàng 27",
+    "emoji": "🐘",
+    "price": 500000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_028",
+    "name": "Khỉ May Mắn 28",
+    "emoji": "🐒",
+    "price": 515000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_029",
+    "name": "Khỉ Đá 29",
+    "emoji": "🗿",
+    "price": 530000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_030",
+    "name": "Panda Ngọc 30",
+    "emoji": "🐼",
+    "price": 545000,
+    "xpPct": 2,
+    "moneyPct": 3,
+    "tier": 2
+  },
+  {
+    "id": "pet_031",
+    "name": "Mèo Mây 31",
+    "emoji": "🐱",
+    "price": 560000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_032",
+    "name": "Cá Koi 32",
+    "emoji": "🐟",
+    "price": 575000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_033",
+    "name": "Cáo Tuyết 33",
+    "emoji": "🦊",
+    "price": 590000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_034",
+    "name": "Thỏ Ngọc 34",
+    "emoji": "🐰",
+    "price": 605000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_035",
+    "name": "Hổ Vàng 35",
+    "emoji": "🐯",
+    "price": 620000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_036",
+    "name": "Rồng Xanh 36",
+    "emoji": "🐉",
+    "price": 635000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_037",
+    "name": "Rồng Đỏ 37",
+    "emoji": "🐲",
+    "price": 650000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_038",
+    "name": "Phượng Hoàng 38",
+    "emoji": "🔥",
+    "price": 665000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_039",
+    "name": "Kỳ Lân 39",
+    "emoji": "🦄",
+    "price": 680000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_040",
+    "name": "Gấu Nâu 40",
+    "emoji": "🐻",
+    "price": 695000,
+    "xpPct": 2,
+    "moneyPct": 4,
+    "tier": 2
+  },
+  {
+    "id": "pet_041",
+    "name": "Gấu Băng 41",
+    "emoji": "🐻‍❄️",
+    "price": 710000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_042",
+    "name": "Sóc Vàng 42",
+    "emoji": "🐿️",
+    "price": 725000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_043",
+    "name": "Hạc Trắng 43",
+    "emoji": "🦢",
+    "price": 740000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_044",
+    "name": "Hươu Sao 44",
+    "emoji": "🦌",
+    "price": 755000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_045",
+    "name": "Sư Tử 45",
+    "emoji": "🦁",
+    "price": 770000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_046",
+    "name": "Báo Đen 46",
+    "emoji": "🐆",
+    "price": 785000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_047",
+    "name": "Chim Ưng 47",
+    "emoji": "🦅",
+    "price": 800000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_048",
+    "name": "Cá Voi 48",
+    "emoji": "🐋",
+    "price": 815000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_049",
+    "name": "Cá Heo 49",
+    "emoji": "🐬",
+    "price": 830000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_050",
+    "name": "Rùa Ngọc 50",
+    "emoji": "🐢",
+    "price": 845000,
+    "xpPct": 3,
+    "moneyPct": 5,
+    "tier": 3
+  },
+  {
+    "id": "pet_051",
+    "name": "Bạch Tuộc 51",
+    "emoji": "🐙",
+    "price": 860000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_052",
+    "name": "Cáo Lửa 52",
+    "emoji": "🦊",
+    "price": 875000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_053",
+    "name": "Mèo Bạc 53",
+    "emoji": "🐈",
+    "price": 890000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_054",
+    "name": "Chó Hoàng Kim 54",
+    "emoji": "🐕",
+    "price": 905000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_055",
+    "name": "Chó Tuyết 55",
+    "emoji": "🐩",
+    "price": 920000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_056",
+    "name": "Chim Cánh Cụt 56",
+    "emoji": "🐧",
+    "price": 935000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_057",
+    "name": "Voi Vàng 57",
+    "emoji": "🐘",
+    "price": 950000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_058",
+    "name": "Khỉ May Mắn 58",
+    "emoji": "🐒",
+    "price": 965000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_059",
+    "name": "Khỉ Đá 59",
+    "emoji": "🗿",
+    "price": 980000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_060",
+    "name": "Panda Ngọc 60",
+    "emoji": "🐼",
+    "price": 995000,
+    "xpPct": 3,
+    "moneyPct": 6,
+    "tier": 3
+  },
+  {
+    "id": "pet_061",
+    "name": "Mèo Mây 61",
+    "emoji": "🐱",
+    "price": 1010000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_062",
+    "name": "Cá Koi 62",
+    "emoji": "🐟",
+    "price": 1025000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_063",
+    "name": "Cáo Tuyết 63",
+    "emoji": "🦊",
+    "price": 1040000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_064",
+    "name": "Thỏ Ngọc 64",
+    "emoji": "🐰",
+    "price": 1055000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_065",
+    "name": "Hổ Vàng 65",
+    "emoji": "🐯",
+    "price": 1070000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_066",
+    "name": "Rồng Xanh 66",
+    "emoji": "🐉",
+    "price": 1085000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_067",
+    "name": "Rồng Đỏ 67",
+    "emoji": "🐲",
+    "price": 1100000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_068",
+    "name": "Phượng Hoàng 68",
+    "emoji": "🔥",
+    "price": 1115000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_069",
+    "name": "Kỳ Lân 69",
+    "emoji": "🦄",
+    "price": 1130000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_070",
+    "name": "Gấu Nâu 70",
+    "emoji": "🐻",
+    "price": 1145000,
+    "xpPct": 4,
+    "moneyPct": 7,
+    "tier": 4
+  },
+  {
+    "id": "pet_071",
+    "name": "Gấu Băng 71",
+    "emoji": "🐻‍❄️",
+    "price": 1160000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_072",
+    "name": "Sóc Vàng 72",
+    "emoji": "🐿️",
+    "price": 1175000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_073",
+    "name": "Hạc Trắng 73",
+    "emoji": "🦢",
+    "price": 1190000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_074",
+    "name": "Hươu Sao 74",
+    "emoji": "🦌",
+    "price": 1205000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_075",
+    "name": "Sư Tử 75",
+    "emoji": "🦁",
+    "price": 1220000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_076",
+    "name": "Báo Đen 76",
+    "emoji": "🐆",
+    "price": 1235000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_077",
+    "name": "Chim Ưng 77",
+    "emoji": "🦅",
+    "price": 1250000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_078",
+    "name": "Cá Voi 78",
+    "emoji": "🐋",
+    "price": 1265000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_079",
+    "name": "Cá Heo 79",
+    "emoji": "🐬",
+    "price": 1280000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_080",
+    "name": "Rùa Ngọc 80",
+    "emoji": "🐢",
+    "price": 1295000,
+    "xpPct": 4,
+    "moneyPct": 8,
+    "tier": 4
+  },
+  {
+    "id": "pet_081",
+    "name": "Bạch Tuộc 81",
+    "emoji": "🐙",
+    "price": 1310000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_082",
+    "name": "Cáo Lửa 82",
+    "emoji": "🦊",
+    "price": 1325000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_083",
+    "name": "Mèo Bạc 83",
+    "emoji": "🐈",
+    "price": 1340000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_084",
+    "name": "Chó Hoàng Kim 84",
+    "emoji": "🐕",
+    "price": 1355000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_085",
+    "name": "Chó Tuyết 85",
+    "emoji": "🐩",
+    "price": 1370000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_086",
+    "name": "Chim Cánh Cụt 86",
+    "emoji": "🐧",
+    "price": 1385000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_087",
+    "name": "Voi Vàng 87",
+    "emoji": "🐘",
+    "price": 1400000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_088",
+    "name": "Khỉ May Mắn 88",
+    "emoji": "🐒",
+    "price": 1415000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_089",
+    "name": "Khỉ Đá 89",
+    "emoji": "🗿",
+    "price": 1430000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_090",
+    "name": "Panda Ngọc 90",
+    "emoji": "🐼",
+    "price": 1445000,
+    "xpPct": 5,
+    "moneyPct": 9,
+    "tier": 5
+  },
+  {
+    "id": "pet_091",
+    "name": "Mèo Mây 91",
+    "emoji": "🐱",
+    "price": 1460000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_092",
+    "name": "Cá Koi 92",
+    "emoji": "🐟",
+    "price": 1475000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_093",
+    "name": "Cáo Tuyết 93",
+    "emoji": "🦊",
+    "price": 1490000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_094",
+    "name": "Thỏ Ngọc 94",
+    "emoji": "🐰",
+    "price": 1505000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_095",
+    "name": "Hổ Vàng 95",
+    "emoji": "🐯",
+    "price": 1520000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_096",
+    "name": "Rồng Xanh 96",
+    "emoji": "🐉",
+    "price": 1535000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_097",
+    "name": "Rồng Đỏ 97",
+    "emoji": "🐲",
+    "price": 1550000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_098",
+    "name": "Phượng Hoàng 98",
+    "emoji": "🔥",
+    "price": 1565000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_099",
+    "name": "Kỳ Lân 99",
+    "emoji": "🦄",
+    "price": 1580000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  },
+  {
+    "id": "pet_100",
+    "name": "Gấu Nâu 100",
+    "emoji": "🐻",
+    "price": 1595000,
+    "xpPct": 5,
+    "moneyPct": 10,
+    "tier": 5
+  }
+]
