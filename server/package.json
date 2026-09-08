@@ -1,6 +1,6 @@
 {
   "name": "casino-slot-vietnam-server",
-  "version": "13.0.0",
+  "version": "16.0.0",
   "private": true,
   "main": "server.js",
   "scripts": {

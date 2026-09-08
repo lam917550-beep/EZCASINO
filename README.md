@@ -1,4 +1,4 @@
-# CASINO SLOT VIETNAM — LASTFINAL
+# CASINO SLOT VIETNAM — LASTFINAL V15 ULTRA
 
 Bản phát hành game Xu ảo cho Telegram Mini App + web login. Mục tiêu: trải nghiệm nhiều hệ thống, gameplay server-authoritative, chống spam và ưu tiên hiệu năng WebView.
 
@@ -122,3 +122,14 @@ Người chơi mới nhận `50.000 Xu`. Người chơi cũ không bị tự đ�
 - `/taopet PETID XU% XP% ICON TEN [HIDE]`: chấp nhận cả `10` và `10%`; `HIDE` ẩn pet khỏi shop.
 - `/event`: list/create/start/stop/delete/broadcast/info; event có thể giới hạn số lượt claim và người chơi claim 1 lần.
 - Bổ sung `/giftcodeinfo`, `/deletegiftcode`, `/resetuser`, `/resetweek`, `/eventclear` cùng các lệnh ADMIN cũ.
+
+
+## V16 — BigInt/Xu vô hạn chữ số
+
+- Số dư Xu và tiền ngân hàng được lưu dưới dạng chuỗi số nguyên và xử lý bằng `BigInt` ở server. Không dùng JavaScript `Number` cho số dư/cược.
+- Có thể nhập cược và gửi ngân hàng bằng số có rất nhiều chữ số, miễn là không vượt 75% số dư.
+- Pet đang trang bị được lưu trong `activePet` và bonus được khôi phục lại mỗi lần bootstrap/session bằng `refreshPetBonus`, nên thoát vào lại vẫn có tác dụng.
+- Tiền lịch sử/giftcode/event Xu được chuẩn hóa sang chuỗi để tránh mất độ chính xác.
+
+### Lưu ý
+BigInt xử lý số nguyên chính xác tùy kích thước bộ nhớ server; không phải giới hạn bởi 2^53 như Number.
