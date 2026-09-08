@@ -1,0 +1,9 @@
+{
+  "five_passes_completed": true,
+  "pass_1": "JavaScript syntax + structure",
+  "pass_2": "game module count + JSON",
+  "pass_3": "backend routes/security markers",
+  "pass_4": "catalog/achievement integrity",
+  "pass_5": "cross-file consistency + required files",
+  "runtime_smoke": "blocked in build environment because npm dependency install timed out"
+}
