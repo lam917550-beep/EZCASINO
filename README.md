@@ -1,80 +1,68 @@
-# CASINO SLOT VIETNAM V3
+# CASINO SLOT VIETNAM V4.2 FINAL
 
-Telegram Mini App game giải trí bằng **Xu ảo**. Không có nạp/rút tiền thật.
+Telegram Mini App game giải trí bằng **Xu ảo**. Bản V4 tập trung vào 3 ưu tiên: **không lỗi luồng game, WebView mượt, giao diện cinematic**.
 
-## Render
+## Điểm chính
 
-**Build Command**
-```bash
-npm install
-```
+- **180 game**; mỗi game có module riêng trong `games/` và catalog server trong `server/games.json`.
+- 12.000 feature modules/catalog hooks để mở rộng hệ thống.
+- 650 achievements.
+- Backend settlement ở Node.js/Express.
+- Session được cấp sau khi bootstrap; API game không phụ thuộc vào việc tin dữ liệu Telegram trực tiếp từ client.
+- Nếu cấu hình `BOT_TOKEN`, server kiểm tra chữ ký `initData`.
+- SFX phát bằng Web Audio API, không tải file âm thanh nặng.
+- Effect thắng được giản lược thành animation CSS nhẹ; không có particle loop liên tục.
+- CSS animation thay cho JavaScript animation loop ở phần giao diện game.
+- Có nút **Hiện kết quả sớm** để máy yếu bỏ qua nhịp cinematic dài.
+- Chat realtime bằng SSE.
+- Daily streak, level/XP, VIP, shop, pet, giftcode, bảng xếp hạng, lịch sử.
+- Bot `/start` trả về Mini App button; cuối lời chào có `👑 Chủ bot: @itznvl`.
 
-**Start Command**
-```bash
-node server/server.js
-```
+## Chạy Render
 
-**Environment Variables**
+### Environment
+
 ```text
 NODE_ENV=production
 BOT_TOKEN=TOKEN_BOTFATHER
-WEB_APP_URL=https://YOUR-RENDER-URL.onrender.com
-PUBLIC_URL=https://YOUR-RENDER-URL.onrender.com
-ADMIN_ID=TELEGRAM_ID_CUA_ADMIN
+WEB_APP_URL=https://TEN-SERVICE.onrender.com
+PUBLIC_URL=https://TEN-SERVICE.onrender.com
+ADMIN_ID=TELEGRAM_ID_CUA_BAN
 ```
 
-`PORT` không cần tự đặt; server đọc `process.env.PORT` do Render cung cấp.
+### Commands
 
-## Telegram `/start`
+```text
+Build Command: npm install
+Start Command: node server/server.js
+```
 
-Backend dùng webhook `POST /telegram/webhook`. Khi có `/start`, server trả thẳng Bot API method `sendMessage` trong HTTP response webhook với nút **MỞ CASINO**. Cách này tránh thêm một round-trip API server→Telegram trong nhánh `/start`, nhưng độ trễ thực tế vẫn phụ thuộc Telegram/network và không thể cam kết cứng 0,1 giây.
+Server lắng nghe `0.0.0.0` và đọc `PORT` từ môi trường.
 
-Khi có `BOT_TOKEN` + `PUBLIC_URL`, server tự gọi `setWebhook` lúc khởi động.
+## Telegram Bot
 
-## ADMIN
+Sau khi Render chạy, server tự gọi Telegram `setWebhook` nếu có `BOT_TOKEN` + `PUBLIC_URL`. Bot sẽ nhận `/start` và trả về nút `🎰 MỞ CASINO`.
 
-Đặt `ADMIN_ID` là Telegram ID của tài khoản quản trị.
+Nếu webhook đã trỏ nơi khác, dùng endpoint quản trị `/api/admin/set-webhook` hoặc đặt lại webhook bằng Bot API.
 
-Trong chat với bot:
+## Lệnh ADMIN
 
-- `/ownerhelp` — chỉ ADMIN mới nhận tài liệu đầy đủ.
-- `/thongbao <nội dung>` — gửi thông báo cho toàn bộ người chơi.
-- `/taogiftcode <CODE> <XU> [PET_ID]` — tạo giftcode và tự động thông báo code cho người chơi mà không nói số Xu.
-- `/gift <ID> <XU>` — tặng Xu.
-- `/gift <ID> pet:<PET_ID>` — tặng pet.
-- `/setxu <ID> <XU>` — đặt số dư.
-- `/setvip <ID> <0-20>` — đặt VIP.
-- `/setlevel <ID> <level>` — đặt level.
-- `/addpet <ID> <PET_ID> [số lượng]` — thêm pet.
-- `/removepet <ID> <PET_ID> [số lượng]` — xóa pet.
-- `/block <ID>` / `/unblock <ID>` — khóa/mở tài khoản.
-- `/resetstreak <ID>` — reset chuỗi đăng nhập.
-- `/stats` — thống kê server.
-- `/maintenance <on|off>` — chuyển trạng thái bảo trì.
+Chỉ `ADMIN_ID` mới được phép dùng: `/thongbao`, `/taogiftcode`, `/gift`, `/setxu`, `/setvip`, `/setlevel`, `/addpet`, `/removepet`, `/block`, `/unblock`, `/resetstreak`, `/stats`, `/maintenance`, `/ownerhelp`.
 
-Giftcode được đổi trong API `/api/giftcode/redeem`; code một lần, có thể kèm pet.
+`/ownerhelp` chỉ trả tài liệu cho tài khoản ADMIN và không được render trên Mini App.
 
-## Hệ thống game
+## Luật Xu
 
-- 130+ game, mỗi game có file riêng trong `games/`.
-- Backend settlement, chống xử lý request lặp qua `requestId`.
-- Cược: tối thiểu 100 Xu, tối đa 20% số dư và không quá 1.000.000 Xu.
 - Người mới: 100.000 Xu.
-- Daily streak theo ngày, reset khi bỏ lỡ.
-- Level / XP / VIP / lịch sử / bảng xếp hạng / realtime event / chat.
-- SFX tạo bằng Web Audio, không tải file audio nặng.
-- Effect tạo bằng DOM animation nhỏ, tự hủy sau khi chạy.
-- 12.000 feature hooks và 600 thành tựu làm catalog mở rộng.
+- Cược tối thiểu: 100 Xu.
+- Cược tối đa: `min(20% số dư, 1.000.000 Xu)`.
+- Không có nạp/rút tiền thật.
+- Win scheduler theo từng game hướng tỷ lệ tích lũy về 40% trong dài hạn; đây không phải lời hứa về xác suất độc lập của từng lượt.
 
-## 40% win scheduler
+## QA
 
-Kết quả settlement sử dụng bộ đếm theo từng game: lượt thứ N được đánh dấu thắng khi `floor(0.4*N)` tăng so với lượt trước. Điều này khiến tỷ lệ cộng dồn tiến về 40% một cách xác định, thay vì dùng random thuần túy. Con số này là tính chất mô phỏng trong game Xu ảo, không phải cam kết tài chính.
+Bản V4 được kiểm tra 5 vòng trước khi đóng gói: syntax, cấu trúc, API/DOM references, logic invariant, runtime source-load checks.
 
-## Chạy local
+## Lưu ý database
 
-```bash
-npm install
-node server/server.js
-```
-
-Mở `http://localhost:10000`.
+`server/database/db.json` phù hợp demo/small deployment. Nếu dữ liệu có giá trị lâu dài, cần persistent storage/database riêng.

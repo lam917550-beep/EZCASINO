@@ -2,22 +2,35 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
-<meta name="theme-color" content="#080b12">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#08090d">
+<meta name="color-scheme" content="dark light">
 <title>CASINO SLOT VIETNAM</title>
-<link rel="preconnect" href="https://telegram.org">
-<link rel="stylesheet" href="/styles.css">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div id="app">
-<header class="topbar"><div><div class="brand">🎰 CASINO SLOT VIETNAM</div><div class="sub">Sân chơi Xu ảo · tối ưu Telegram</div></div><button id="theme" class="icon-btn">☾</button></header>
-<section class="wallet"><div class="user"><div id="avatar" class="avatar">🎰</div><div><div class="muted">Xin chào</div><h1 id="name">Người chơi</h1><div><span id="vip" class="gold">VIP 0</span> · Cấp <span id="level">1</span></div></div></div><div class="wallet-right"><div class="muted">Số dư</div><strong id="balance">100.000 Xu</strong></div></section>
-<nav id="nav" class="tabs"><button data-v="home" class="active">Trang chủ</button><button data-v="games">Game</button><button data-v="tasks">Nhiệm vụ</button><button data-v="rank">Xếp hạng</button><button data-v="profile">Cá nhân</button></nav>
-<main id="view"></main>
-<footer>Xu ảo · Không nạp/rút tiền thật · Chơi giải trí</footer>
+<div id="app" class="app-shell">
+  <header class="topbar">
+    <div class="brand-wrap"><div class="brand-mark">C</div><div><div class="brand">CASINO SLOT <span>VIETNAM</span></div><div class="tagline">SÒNG BÀI XU ẢO · HIỆU NĂNG CAO</div></div></div>
+    <div class="top-actions"><button id="audio" class="icon-btn" aria-label="Bật tắt âm thanh">🔊</button><button id="theme" class="icon-btn" aria-label="Đổi giao diện">☾</button></div>
+  </header>
+  <section class="wallet glass">
+    <div class="identity"><div id="avatar" class="avatar">🎰</div><div><div class="eyebrow">NGƯỜI CHƠI</div><h1 id="name">Người chơi</h1><div class="identity-meta"><span id="vip">VIP 0</span><span>•</span><span>Cấp <b id="level">1</b></span></div></div></div>
+    <div class="wallet-balance"><div class="eyebrow">SỐ DƯ</div><div id="balance" class="balance">100.000 Xu</div></div>
+  </section>
+  <div class="ticker"><span class="pulse-dot"></span><span id="tickerText">Hệ thống đang sẵn sàng</span></div>
+  <main id="view"></main>
+  <nav id="nav" class="bottom-nav">
+    <button data-v="home" class="active"><span>⌂</span><small>Trang chủ</small></button>
+    <button data-v="games"><span>♠</span><small>Trò chơi</small></button>
+    <button data-v="tasks"><span>✦</span><small>Nhiệm vụ</small></button>
+    <button data-v="rank"><span>♛</span><small>Xếp hạng</small></button>
+    <button data-v="profile"><span>◉</span><small>Cá nhân</small></button>
+  </nav>
 </div>
-<div id="toast"></div>
+<div id="modal-root"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 <script type="module" src="/app.js"></script>
 </body>
 </html>

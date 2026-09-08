@@ -2,6 +2,7 @@ services:
   - type: web
     name: casino-slot-vietnam
     runtime: node
+    plan: free
     buildCommand: npm install
     startCommand: node server/server.js
     healthCheckPath: /health
