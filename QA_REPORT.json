@@ -1,1 +1,33 @@
-{"passes":5,"status":"PASS","runtime_boot":"PASS","notes":"Five repeated source checks plus runtime boot with isolated Express stub; final archive integrity checked after packaging."}
+{
+  "passes": [
+    {
+      "pass": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "pass": 2,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "pass": 3,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "pass": 4,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "pass": 5,
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "game_count": 180,
+  "game_modules": 181,
+  "feature_count": 12000,
+  "achievement_count": 650
+}

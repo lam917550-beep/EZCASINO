@@ -5,7 +5,7 @@ const path=require('path');
 const app=express();
 app.disable('x-powered-by');
 app.use(express.json({limit:'128kb'}));
-app.use((req,res,next)=>{ if(req.path==='/' || req.path.endsWith('.js') || req.path.endsWith('.css')) res.setHeader('Cache-Control','no-store, no-cache, must-revalidate, proxy-revalidate'); next(); });
+app.use((req,res,next)=>{ if(req.path==='/' || /\.(?:js|css|html)$/.test(req.path)) res.setHeader('Cache-Control','no-store, no-cache, must-revalidate, proxy-revalidate'); next(); });
 const ROOT=path.join(__dirname,'..');
 const DB_PATH=path.join(__dirname,'database','db.json');
 const PORT=Number(process.env.PORT||10000);
@@ -51,7 +51,6 @@ app.post('/api/free-spin',(req,res)=>{try{const p=authPlayer(req),now=Date.now()
 app.get('/api/history',(req,res)=>res.json(db.history.filter(x=>String(x.userId)===String(req.query.id||'')).slice(0,80)));
 app.get('/api/rankings',(req,res)=>{const ps=Object.values(db.players);res.json({richest:[...ps].sort((a,b)=>b.balance-a.balance).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,balance:p.balance})),streak:[...ps].sort((a,b)=>b.bestStreak-a.bestStreak).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,streak:p.bestStreak})),weekly:[...ps].sort((a,b)=>b.weeklyWins-a.weeklyWins).slice(0,100).map((p,i)=>({rank:i+1,name:p.name,wins:p.weeklyWins}))})});
 app.get('/api/events',(req,res)=>{res.setHeader('Content-Type','text/event-stream');res.setHeader('Cache-Control','no-cache, no-transform');res.setHeader('Connection','keep-alive');res.write(`event: ping\ndata: ${Date.now()}\n\n`);res.write(`event: chat_history\ndata: ${JSON.stringify(db.chat.slice(-60))}\n\n`);clients.add(res);req.on('close',()=>clients.delete(res))});
-app.get('/api/chat/stream',(req,res)=>{res.setHeader('Content-Type','text/event-stream');res.setHeader('Cache-Control','no-cache, no-transform');res.setHeader('Connection','keep-alive');res.write(`event: chat_history\ndata: ${JSON.stringify(db.chat.slice(-60))}\n\n`);clients.add(res);req.on('close',()=>clients.delete(res))});
 app.post('/api/chat',(req,res)=>{try{const p=authPlayer(req);const text=String(req.body.text||'').trim();if(!text||text.length>300)throw Error('Tin nhắn không hợp lệ');const msg={id:crypto.randomUUID(),userId:p.id,name:p.name,text,time:Date.now()};db.chat.push(msg);db.chat=db.chat.slice(-1000);save();broadcast('chat_message',msg);res.json(msg)}catch(e){res.status(400).json({error:e.message})}});
 const SHOP={double_xp:{name:'Thẻ Nhân Đôi XP',price:5000},lucky_ticket:{name:'Vé May Mắn',price:2500},pet_food:{name:'Thức Ăn Pet',price:1200},gold_frame:{name:'Khung Hồ Sơ Vàng',price:9000},sound_pack:{name:'Gói Âm Thanh',price:7000}};
 app.get('/api/shop',(req,res)=>res.json(SHOP));
