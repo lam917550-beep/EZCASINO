@@ -1,6 +1,6 @@
 {
   "name": "casino-slot-vietnam-lastfinal",
-  "version": "16.0.0",
+  "version": "18.0.0",
   "private": true,
   "scripts": {
     "start": "node server/server.js",

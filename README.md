@@ -133,3 +133,13 @@ Người chơi mới nhận `50.000 Xu`. Người chơi cũ không bị tự đ�
 
 ### Lưu ý
 BigInt xử lý số nguyên chính xác tùy kích thước bộ nhớ server; không phải giới hạn bởi 2^53 như Number.
+
+## V17 — UI/UX & performance
+- Giao diện lấy cảm hứng từ phong cách casino cổ điển sáng, khung gỗ + vàng, không sao chép nguyên bản ảnh tham khảo.
+- Chat room không còn hiển thị trong Mini App.
+- SFX được sinh cục bộ bằng Web Audio API, không cần mua/tải audio.
+- Animation chỉ chạy trong modal game đang mở; trang chính không có animation loop.
+- Có `prefers-reduced-motion`, không canvas, không particle system.
+- 75 game active để giảm tải DOM; các module game còn lại trong repository được giữ để tương thích mở rộng.
+- `/api/play` settlement ở server; client chỉ trình diễn kết quả được server trả về.
+- Tiền Xu tiếp tục dùng BigInt-string; lãi ngân hàng dùng phép toán nguyên để không mất chính xác.
